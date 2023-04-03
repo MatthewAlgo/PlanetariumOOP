@@ -58,6 +58,7 @@ endfunction()
 
 ###############################################################################
 
+# Will use SFML or other library in the future?
 # external dependencies with FetchContent
 #include(FetchContent)
 #
@@ -78,9 +79,20 @@ endfunction()
 # find_package(Threads REQUIRED)
 
 ###############################################################################
+file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
+file(GLOB_RECURSE headers CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} Start.cpp ${sources} ${headers}
+    source/blackHole.cpp include/blackHole.h
+    source/planet.cpp include/planet.h
+    source/moon.cpp include/moon.h
+    source/star.cpp include/star.h
+    source/celestialObject.cpp include/celestialObject.h
+    source/dwarfStar.cpp include/dwarfStar.h
+    source/galaxy.cpp include/galaxy.h
+    source/hyperGiantStar.cpp include/hyperGiantStar.h
+    source/starCluster.cpp include/starCluster.h)
 
 ###############################################################################
 
@@ -112,7 +124,12 @@ set_custom_stdlib_and_sanitizers(${PROJECT_NAME} true)
 
 ###############################################################################
 
-# use SYSTEM so clang-tidy does not report warnings from these directories
+# Use SYSTEM so clang-tidy does not report warnings from these directories
+target_include_directories(
+  ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+                         $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
+)
+
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
 #target_link_directories(${PROJECT_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
