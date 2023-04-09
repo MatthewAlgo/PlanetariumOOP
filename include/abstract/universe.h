@@ -10,16 +10,15 @@ private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
 public:
-    Universe();
     Universe(int numberOfGalaxies);
     void draw();
-    void addGalaxy(Galaxy galaxy);
-    void removeGalaxy(Galaxy galaxy);
-    void removeGalaxy(int index);
-    void removeAllGalaxies();
-    void setNumberOfGalaxies(int numberOfGalaxies);
-    int getNumberOfGalaxies();
-    std::vector<Galaxy> getGalaxies();
+//    void addGalaxy(Galaxy galaxy);
+//    void removeGalaxy(Galaxy galaxy);
+//    void removeGalaxy(int index);
+//    void removeAllGalaxies();
+//    void setNumberOfGalaxies(int numberOfGalaxies);
+//    int getNumberOfGalaxies();
+//    std::vector<Galaxy> getGalaxies();
     friend std::ostream& operator<<(std::ostream& os, const Universe& universe);
     ~Universe();
     Universe(const Universe& universe);

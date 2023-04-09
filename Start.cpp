@@ -3,7 +3,7 @@
 
 int main() {
 
-    Universe universe;
+    Universe universe(1);
     std::cout<<universe<<std::endl;
 
     return 0;

@@ -4,13 +4,21 @@ Galaxy::~Galaxy() {
 }
 
 Galaxy::Galaxy(const Galaxy& galaxy) {
-    this->starClusters = galaxy.starClusters;
+    starClusters = galaxy.starClusters;
+    distanceFromCenterOfUniverse = galaxy.distanceFromCenterOfUniverse;
+    radius = galaxy.radius;
+    rotationSpeed = galaxy.rotationSpeed;
+    luminosity = galaxy.luminosity;
 }
 
 Galaxy& Galaxy::operator=(const Galaxy& galaxy) {
     if (this != &galaxy) {
         this->starClusters = galaxy.starClusters;
     }
+    distanceFromCenterOfUniverse = galaxy.distanceFromCenterOfUniverse;
+    radius = galaxy.radius;
+    rotationSpeed = galaxy.rotationSpeed;
+    luminosity = galaxy.luminosity;
     return *this;
 }
 
@@ -30,3 +38,7 @@ std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy){
     return os;
 }
 
+Galaxy::Galaxy(double dist, double rad) {
+    this->distanceFromCenterOfUniverse = dist;
+    this->radius = rad;
+}

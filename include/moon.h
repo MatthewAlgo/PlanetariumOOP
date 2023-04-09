@@ -11,34 +11,32 @@ private:
     double distanceFromPlanet;
     double orbitSpeed;
     double rotationSpeed;
-    double color;
-    double texture;
     double rotationAngle;
 
 public:
     Moon();
-    void draw();
+    void draw() override;
 
     // Constructor
-    Moon(std::string name, double mass, double radius, double distanceFromPlanet, double orbitSpeed);
+    Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed);
 
     // Getters and setters for all the private variables
-    double getMass();
-    void setMass(double mass);
-    double getRadius();
-    void setRadius(double radius);
-    double getDistanceFromPlanet();
-    void setDistanceFromPlanet(double distanceFromPlanet);
-    double getOrbitSpeed();
-    void setOrbitSpeed(double orbitSpeed);
-    double getRotationSpeed();
-    void setRotationSpeed(double rotationSpeed);
-    double getColor();
-    void setColor(double color);
-    double getTexture();
-    void setTexture(double texture);
-    double getRotationAngle();
-    void setRotationAngle(double rotationAngle);
+//    double getMass();
+//    void setMass(double mass);
+//    double getRadius();
+//    void setRadius(double radius);
+//    double getDistanceFromPlanet();
+//    void setDistanceFromPlanet(double distanceFromPlanet);
+//    double getOrbitSpeed();
+//    void setOrbitSpeed(double orbitSpeed);
+//    double getRotationSpeed();
+//    void setRotationSpeed(double rotationSpeed);
+//    double getColor();
+//    void setColor(double color);
+//    double getTexture();
+//    void setTexture(double texture);
+//    double getRotationAngle();
+//    void setRotationAngle(double rotationAngle);
 
     // friend ostream for <<
     friend std::ostream& operator<<(std::ostream& os, const Moon& moon);

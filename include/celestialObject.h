@@ -13,17 +13,17 @@ protected:
     double texture;
 
     // Getters and setters for all the private variables
-    std::string getName() const;
-    void setName(std::string name);
-    double getColor() const;
-    void setColor(double color);
-    double getTexture() const;
-    void setTexture(double texture);
+//    std::string getName() const;
+//    void setName(std::string name);
+//    double getColor() const;
+//    void setColor(double color);
+//    double getTexture() const;
+//    void setTexture(double texture);
 
     // Pure virtual function
     virtual void draw() = 0;
     // Constructor
-    CelestialObject(std::string name, double color, double texture);
+    CelestialObject(const std::string& name, double color, double texture);
 
 };
 

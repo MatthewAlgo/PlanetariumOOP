@@ -5,22 +5,22 @@ void BlackHole::draw() {
     // Draw the black hole
 }
 
-[[maybe_unused]]
-double BlackHole::getMass() const {
-    return mass;
-}
-[[maybe_unused]]
-void BlackHole::setMass(double m) {
-    mass = m;
-}
-[[maybe_unused]]
-double BlackHole::getRadius() const{
-    return radius;
-}
-[[maybe_unused]]
-void BlackHole::setRadius(double r) {
-    radius = r;
-}
+//[[maybe_unused]]
+//double BlackHole::getMass() const {
+//    return mass;
+//}
+//[[maybe_unused]]
+//void BlackHole::setMass(double m) {
+//    mass = m;
+//}
+//[[maybe_unused]]
+//double BlackHole::getRadius() const{
+//    return radius;
+//}
+//[[maybe_unused]]
+//void BlackHole::setRadius(double r) {
+//    radius = r;
+//}
 
 
 // friend ostream for <<
@@ -32,7 +32,7 @@ std::ostream &operator<<(std::ostream &os, const BlackHole &blackHole) {
 }
 
 // Constructor, copy constructor, destructor, and assignment operator
-BlackHole::BlackHole(std::string name, double a, double s, double r, double m) : CelestialObject(name, 0, 0){
+BlackHole::BlackHole(const std::string& name, double a, double s, double r, double m) : CelestialObject(name, 0, 0){
     // Init the variables
     activityLevel = a;
     schwarzschildRadius = s;

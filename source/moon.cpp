@@ -5,70 +5,70 @@
 void Moon::draw() {
     // Draw the moon
 }
-[[maybe_unused]]
-double Moon::getMass() {
-    return this->mass;
-}
-[[maybe_unused]]
-void Moon::setMass(double m) {
-    mass = m;
-}
-[[maybe_unused]]
-double Moon::getRadius() {
-    return radius;
-}
-[[maybe_unused]]
-void Moon::setRadius(double r) {
-    radius = r;
-}
-[[maybe_unused]]
-double Moon::getDistanceFromPlanet() {
-    return distanceFromPlanet;
-}
-[[maybe_unused]]
-void Moon::setDistanceFromPlanet(double dist) {
-    distanceFromPlanet = dist;
-}
-[[maybe_unused]]
-double Moon::getOrbitSpeed() {
-    return orbitSpeed;
-}
-[[maybe_unused]]
-void Moon::setOrbitSpeed(double os) {
-    this->orbitSpeed = os;
-}
-[[maybe_unused]]
-double Moon::getRotationSpeed() {
-    return rotationSpeed;
-}
-[[maybe_unused]]
-double Moon::getColor() {
-    return color;
-}
-[[maybe_unused]]
-void Moon::setColor(double c) {
-    color = c;
-}
-[[maybe_unused]]
-double Moon::getTexture() {
-    return texture;
-}
-[[maybe_unused]]
-void Moon::setTexture(double text) {
-    texture = text;
-}
-[[maybe_unused]]
-void Moon::setRotationSpeed(double rs) {
-    this->rotationSpeed = rs;
-}
-[[maybe_unused]]
-double Moon::getRotationAngle() {
-    return rotationAngle;
-}
-[[maybe_unused]]
-void Moon::setRotationAngle(double rAng) {
-    this->rotationAngle = rAng;
-}
+//[[maybe_unused]]
+//double Moon::getMass() {
+//    return this->mass;
+//}
+//[[maybe_unused]]
+//void Moon::setMass(double m) {
+//    mass = m;
+//}
+//[[maybe_unused]]
+//double Moon::getRadius() {
+//    return radius;
+//}
+//[[maybe_unused]]
+//void Moon::setRadius(double r) {
+//    radius = r;
+//}
+//[[maybe_unused]]
+//double Moon::getDistanceFromPlanet() {
+//    return distanceFromPlanet;
+//}
+//[[maybe_unused]]
+//void Moon::setDistanceFromPlanet(double dist) {
+//    distanceFromPlanet = dist;
+//}
+//[[maybe_unused]]
+//double Moon::getOrbitSpeed() {
+//    return orbitSpeed;
+//}
+//[[maybe_unused]]
+//void Moon::setOrbitSpeed(double os) {
+//    this->orbitSpeed = os;
+//}
+//[[maybe_unused]]
+//double Moon::getRotationSpeed() {
+//    return rotationSpeed;
+//}
+//[[maybe_unused]]
+//double Moon::getColor() {
+//    return color;
+//}
+//[[maybe_unused]]
+//void Moon::setColor(double c) {
+//    color = c;
+//}
+//[[maybe_unused]]
+//double Moon::getTexture() {
+//    return texture;
+//}
+//[[maybe_unused]]
+//void Moon::setTexture(double text) {
+//    texture = text;
+//}
+//[[maybe_unused]]
+//void Moon::setRotationSpeed(double rs) {
+//    this->rotationSpeed = rs;
+//}
+//[[maybe_unused]]
+//double Moon::getRotationAngle() {
+//    return rotationAngle;
+//}
+//[[maybe_unused]]
+//void Moon::setRotationAngle(double rAng) {
+//    this->rotationAngle = rAng;
+//}
 
 // friend ostream for <<
 std::ostream& operator<<(std::ostream& os, const Moon& moon){
@@ -81,8 +81,8 @@ Moon::~Moon() {
     std::cout << "Moon " << this->name << " destroyed!" << std::endl;
 }
 
-Moon::Moon(std::string name, double mass, double radius, double distanceFromPlanet, double orbitSpeed)
-    : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed) {
+Moon::Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed)
+    : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed), rotationSpeed(0), rotationAngle(0) {
     std::cout << "Moon constructor called!" << std::endl;
 }
 
