@@ -22,6 +22,9 @@ void init() {
         }
         universe.addGalaxy(galaxy);
     }
+    BlackHole blackHole("Black Hole", Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLEMASS_SUPERMASSIVE);
+    std::cout<<blackHole<<std::endl;
+
     std::cout<<universe<<std::endl;
 }
 

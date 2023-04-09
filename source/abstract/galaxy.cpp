@@ -34,7 +34,7 @@ std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy){
 
     // Output lonely stars
     os << "Lonely stars:" << std::endl;
-    for (int i = 0; i < galaxy.lonelyStars.size(); i++) {
+    for (int i = 0; i < (int)galaxy.lonelyStars.size(); i++) {
         os << galaxy.lonelyStars[i] << std::endl;
     }
 
