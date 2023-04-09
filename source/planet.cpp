@@ -137,7 +137,7 @@ void Planet::draw()
 }
 
 // Getter for the moons
-std::vector<Moon>& Planet::getMoons()
-{
-    return this->moons;
-}
+//std::vector<Moon>& Planet::getMoons()
+//{
+//    return this->moons;
+//}

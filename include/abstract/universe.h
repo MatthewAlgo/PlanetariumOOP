@@ -10,7 +10,7 @@ private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
 public:
-    Universe(int numberOfGalaxies);
+    explicit Universe(int numberOfGalaxies);
     void draw();
 //    void addGalaxy(Galaxy galaxy);
 //    void removeGalaxy(Galaxy galaxy);

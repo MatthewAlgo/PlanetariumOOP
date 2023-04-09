@@ -37,7 +37,7 @@ public:
 //    double getTexture() const;
 //    void setTexture(double texture);
 
-    std::vector<Moon>& getMoons();
+//    std::vector<Moon>& getMoons();
     void setMoons(const std::vector<Moon>& moons);
 
     // friend ostream for <<

@@ -24,6 +24,7 @@ protected:
     virtual void draw() = 0;
     // Constructor
     CelestialObject(const std::string& name, double color, double texture);
+    virtual ~CelestialObject();
 
 };
 

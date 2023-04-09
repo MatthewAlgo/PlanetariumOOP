@@ -3,7 +3,7 @@
 Galaxy::~Galaxy() {
 }
 
-Galaxy::Galaxy(const Galaxy& galaxy) : starClusters(galaxy.starClusters), distanceFromCenterOfUniverse(galaxy.distanceFromCenterOfUniverse), radius(galaxy.radius), rotationSpeed(galaxy.rotationSpeed), luminosity(galaxy.luminosity) {
+Galaxy::Galaxy(const Galaxy& galaxy) : distanceFromCenterOfUniverse(galaxy.distanceFromCenterOfUniverse), rotationSpeed(galaxy.rotationSpeed), radius(galaxy.radius), luminosity(galaxy.luminosity), starClusters(galaxy.starClusters) {
 }
 
 Galaxy& Galaxy::operator=(const Galaxy& galaxy) {

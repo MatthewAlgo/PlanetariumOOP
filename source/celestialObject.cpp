@@ -29,3 +29,5 @@
 
 CelestialObject::CelestialObject(const std::string& n, double c, double t) : name(n), color(c), texture(t) {
 }
+CelestialObject::~CelestialObject() {
+}
