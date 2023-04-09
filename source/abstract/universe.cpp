@@ -70,3 +70,34 @@ std::ostream& operator<<(std::ostream& os, const Universe& universe) {
 void Universe::addGalaxy(const Galaxy& galaxy) {
     galaxies.push_back(galaxy);
 }
+
+void Universe::createBigBang() {
+    // Create the big bang - init the stars, galaxies, black holes, etc.
+    for (int i = 0; i < numberOfGalaxies; i++) {
+        std::string name = "Galaxy " + std::to_string(i);
+        Galaxy galaxy(name, i, i);
+        for (int j = 0; j < Constants::NUMBER_OF_STARS_PER_GALAXY; j++) {
+            std::string starName = "Star " + std::to_string(j);
+            Star star(starName, Constants::STARMASS_MASSIVE, i, j, i);
+            galaxy.addStar(star);
+        }
+        if (galaxy.getRotationSpeed() == 0 && galaxy.getLuminosity() == 0) {
+            galaxy.setRotationSpeed(i * Constants::ROTATION_SPEED_CONSTANT);
+            galaxy.setLuminosity(i * Constants::LUMINOSITY_CONSTANT);
+        }
+        addGalaxy(galaxy);
+    }
+    startTime();
+}
+
+void Universe::startTime(){
+    // Start the time
+    begin = std::chrono::high_resolution_clock::now();
+}
+
+// Check the time
+void Universe::checkTime(){
+    std::chrono::steady_clock::time_point end = std::chrono::high_resolution_clock::now();
+    std::cout << "Time since big bang = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[µs]" << std::endl;
+    std::cout << "Time since big bang = " << std::chrono::duration_cast<std::chrono::seconds> (end - begin).count() << "[s]" << std::endl;
+}

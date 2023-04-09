@@ -12,7 +12,9 @@ protected:
     double mass;
 public:
     void draw() override;
+    BlackHole();
     BlackHole(const std::string& name, double activityLevel, double schwarzschildRadius, double radius, double mass);
+    BlackHole(double activityLevel, double schwarzschildRadius, double radius, double mass);
     ~BlackHole();
     BlackHole(const BlackHole& blackHole);
     BlackHole& operator=(const BlackHole& blackHole);

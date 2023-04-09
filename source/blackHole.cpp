@@ -42,6 +42,14 @@ BlackHole::BlackHole(const std::string& name, double a, double s, double r, doub
 
 }
 
+BlackHole::BlackHole(double a, double s, double r, double m) : CelestialObject("Default name", 0, 0) {
+    // Init the variables
+    activityLevel = a;
+    schwarzschildRadius = s;
+    radius = r;
+    mass = m;
+}
+
 BlackHole::~BlackHole() {
     // Destructor
 }
@@ -63,4 +71,12 @@ BlackHole& BlackHole::operator=(const BlackHole& blackHole) {
     radius = blackHole.radius;
     mass = blackHole.mass;
     return *this;
+}
+
+BlackHole::BlackHole() : CelestialObject("Default name", 0, 0) {
+    // Init the variables
+    activityLevel = 0;
+    schwarzschildRadius = 0;
+    radius = 0;
+    mass = 0;
 }

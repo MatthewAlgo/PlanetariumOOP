@@ -3,7 +3,7 @@
 Galaxy::~Galaxy() {
 }
 
-Galaxy::Galaxy(const Galaxy& galaxy) : name(galaxy.name), distanceFromCenterOfUniverse(galaxy.distanceFromCenterOfUniverse), rotationSpeed(galaxy.rotationSpeed), radius(galaxy.radius), luminosity(galaxy.luminosity), starClusters(galaxy.starClusters) {
+Galaxy::Galaxy(const Galaxy& galaxy) : name(galaxy.name), distanceFromCenterOfUniverse(galaxy.distanceFromCenterOfUniverse), rotationSpeed(galaxy.rotationSpeed), radius(galaxy.radius), luminosity(galaxy.luminosity), starClusters(galaxy.starClusters), blackHole(galaxy.blackHole) {
 }
 
 Galaxy& Galaxy::operator=(const Galaxy& galaxy) {
@@ -15,6 +15,7 @@ Galaxy& Galaxy::operator=(const Galaxy& galaxy) {
     radius = galaxy.radius;
     rotationSpeed = galaxy.rotationSpeed;
     luminosity = galaxy.luminosity;
+    blackHole = galaxy.blackHole;
     return *this;
 }
 
@@ -47,6 +48,9 @@ Galaxy::Galaxy(const std::string& n, double dist, double rad) {
     this->radius = rad;
     rotationSpeed = 0;
     luminosity = 0;
+
+    // Create a central black hole
+    blackHole = BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE);
 }
 
 // Getter and setter for the rotation speed and luminosity

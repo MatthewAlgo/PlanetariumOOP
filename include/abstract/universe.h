@@ -2,6 +2,8 @@
 #define UNIVERSE_H
 
 #include "abstract/galaxy.h"
+#include "constants.h"
+#include <chrono>
 #include <vector>
 
 class Universe
@@ -9,6 +11,7 @@ class Universe
 private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
+    std::chrono::steady_clock::time_point begin;
 public:
     explicit Universe(int numberOfGalaxies);
     void draw();
@@ -26,6 +29,9 @@ public:
 
     // Add an object to the universe
     void addGalaxy(const Galaxy& galaxy);
+    void createBigBang();
+    void startTime();
+    void checkTime();
 };
 
 

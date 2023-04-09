@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include "abstract/starCluster.h"
+#include "constants.h"
+#include "blackHole.h"
 
 class Galaxy
 {
@@ -16,6 +18,7 @@ class Galaxy
 
     std::vector<StarCluster> starClusters;
     std::vector<Star> lonelyStars;
+    BlackHole blackHole;
 public:
     friend std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy);
 
