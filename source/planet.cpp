@@ -1,7 +1,7 @@
 #include "planet.h"
 
 // Constructor
-Planet::Planet(const std::string& n, double m, double r, double d, double o) : CelestialObject(n, 0, 0), rotationSpeed(0), mass(m), radius(r), distanceFromSun(d), orbitSpeed(o) {
+Planet::Planet(const std::string& n, double m, double r, double d, double o) : CelestialObject(n, 0, 0), mass(m), radius(r), distanceFromSun(d), orbitSpeed(o) {
 }
 
 // Getters and setters for all the private variables
@@ -104,11 +104,8 @@ Planet::Planet(const Planet &planet) : CelestialObject(planet.name, 0, 0)
     this->radius = planet.radius;
     this->distanceFromSun = planet.distanceFromSun;
     this->orbitSpeed = planet.orbitSpeed;
-    this->rotationSpeed = planet.rotationSpeed;
     this->color = planet.color;
     this->texture = planet.texture;
-    this->rotationSpeed = planet.rotationSpeed;
-    this->rotationAngle = planet.rotationAngle;
     this->name = planet.name;
     this->moons = planet.moons;
 }
@@ -121,11 +118,8 @@ Planet &Planet::operator=(const Planet &planet)
         this->radius = planet.radius;
         this->distanceFromSun = planet.distanceFromSun;
         this->orbitSpeed = planet.orbitSpeed;
-        this->rotationSpeed = planet.rotationSpeed;
         this->color = planet.color;
         this->texture = planet.texture;
-        this->rotationSpeed = planet.rotationSpeed;
-        this->rotationAngle = planet.rotationAngle;
         this->name = planet.name;
         this->moons = planet.moons;
     }

@@ -48,7 +48,6 @@ Universe::~Universe() {
 
 Universe::Universe(const Universe& universe) : galaxies(universe.galaxies) {
     numberOfGalaxies = universe.numberOfGalaxies;
-    galaxies = universe.galaxies;
 }
 
 Universe& Universe::operator=(const Universe& universe) {

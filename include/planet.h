@@ -14,8 +14,6 @@ private:
     double radius;
     double distanceFromSun;
     double orbitSpeed;
-    double rotationSpeed;
-    double rotationAngle;
 
     std::vector<Moon> moons;
 
@@ -38,10 +36,6 @@ public:
 //    void setColor(double color);
 //    double getTexture() const;
 //    void setTexture(double texture);
-//    double getRotationSpeed() const;
-//    void setRotationSpeed(double rotationSpeed);
-//    double getRotationAngle() const;
-//    void setRotationAngle(double rotationAngle);
 
     std::vector<Moon>& getMoons();
     void setMoons(const std::vector<Moon>& moons);

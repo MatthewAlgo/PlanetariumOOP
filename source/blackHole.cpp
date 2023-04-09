@@ -3,6 +3,7 @@
 // Implement all the functions in the header file of blackHole
 void BlackHole::draw() {
     // Draw the black hole
+    std::cout << "Drawing a black hole" << std::endl;
 }
 
 //[[maybe_unused]]

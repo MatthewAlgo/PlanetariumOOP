@@ -2,6 +2,7 @@
 
 void Star::draw() {
     // Draw the star
+    std::cout<<"The star is drawn"<<std::endl;
 }
 
 //[[maybe_unused]]
