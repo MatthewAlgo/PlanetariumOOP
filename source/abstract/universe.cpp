@@ -92,12 +92,12 @@ void Universe::createBigBang() {
 
 void Universe::startTime(){
     // Start the time
-    begin = std::chrono::high_resolution_clock::now();
+    begin = std::chrono::steady_clock::now();
 }
 
 // Check the time
 void Universe::checkTime(){
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::steady_clock::now();
     std::cout << "Time since big bang = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[µs]" << std::endl;
     std::cout << "Time since big bang = " << std::chrono::duration_cast<std::chrono::seconds> (end - begin).count() << "[s]" << std::endl;
 }
