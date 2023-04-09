@@ -11,7 +11,7 @@ class Universe
 private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
-    std::chrono::steady_clock::time_point begin;
+    std::chrono::time_point<std::chrono::steady_clock> begin;
 public:
     explicit Universe(int numberOfGalaxies);
     void draw();
