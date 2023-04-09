@@ -23,6 +23,9 @@ public:
     ~Universe();
     Universe(const Universe& universe);
     Universe& operator=(const Universe& universe);
+
+    // Add an object to the universe
+    void addGalaxy(const Galaxy& galaxy);
 };
 
 

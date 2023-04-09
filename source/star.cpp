@@ -37,7 +37,6 @@ std::ostream &operator<<(std::ostream &os, const Star &star) {
     os << "Star radius: " << star.radius << std::endl;
     os << "Star distance from center of galaxy: " << star.distanceFromCenterOfGalaxy << std::endl;
     os << "Star orbit speed: " << star.orbitSpeed << std::endl;
-    os << "Star moons: " << std::endl;
     for (int i = 0; i < (int)star.planets.size(); i++) {
         os << star.planets[i] << std::endl;
     }
@@ -60,7 +59,6 @@ Star &Star::operator=(const Star &star) {
 }
 
 Star::~Star() {
-    std::cout << "Star destructor called" << std::endl;
 }
 
 // Constructor

@@ -66,3 +66,7 @@ std::ostream& operator<<(std::ostream& os, const Universe& universe) {
     }
     return os;
 }
+
+void Universe::addGalaxy(const Galaxy& galaxy) {
+    galaxies.push_back(galaxy);
+}
