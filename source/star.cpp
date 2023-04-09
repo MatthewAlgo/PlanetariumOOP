@@ -45,16 +45,16 @@ std::ostream &operator<<(std::ostream &os, const Star &star) {
 }
 
 // Operator= and copy constructor
-Star::Star(const Star &star) : CelestialObject(star.name, 0, 0), mass(star.mass), radius(star.radius), distanceFromCenterOfGalaxy(star.distanceFromCenterOfGalaxy), orbitSpeed(star.orbitSpeed), planets(star.planets) {
+Star::Star(const Star &star) : CelestialObject(star.name, 0, 0), mass(star.mass), radius(star.radius), orbitSpeed(star.orbitSpeed), distanceFromCenterOfGalaxy(star.distanceFromCenterOfGalaxy),  planets(star.planets) {
     // Init the variables
 }
 
 Star &Star::operator=(const Star &star) {
+    CelestialObject::operator=(star);
     mass = star.mass;
     radius = star.radius;
-    distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
     orbitSpeed = star.orbitSpeed;
-    name = star.name;
+    distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
     planets = star.planets;
     return *this;
 }
@@ -64,7 +64,7 @@ Star::~Star() {
 }
 
 // Constructor
-Star::Star(const std::string& n, double m, double r, double d, double o) : CelestialObject(n, 0, 0), mass(m), radius(r), distanceFromCenterOfGalaxy(d), orbitSpeed(o) {
+Star::Star(const std::string& n, double m, double r, double o, double d) : CelestialObject(n, 0, 0), mass(m), radius(r),orbitSpeed(o), distanceFromCenterOfGalaxy(d) {
     // Init the variables
 
 }

@@ -18,11 +18,11 @@ protected:
     std::vector<Planet> planets;
 
 public:
-    // Constructor, destuctor, copy constructor, assignment operator, getters and setters
+    // Constructor, destructor, copy constructor, assignment operator, getters and setters
     void draw() override;
 
     // Constructor
-    Star(const std::string& name, double mass, double radius, double distanceFromSun, double orbitSpeed);
+    Star(const std::string& name, double mass, double radius, double orbitSpeed, double distanceFromCenterOfGalaxy);
 
     // Getters and setters for all the private variables
 //    double getMass() const;
