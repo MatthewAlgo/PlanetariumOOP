@@ -1,73 +1,73 @@
 #include "moon.h"
 
 // Implement all the functions in the header file
+[[maybe_unused]]
 void Moon::draw() {
     // Draw the moon
 }
-
+[[maybe_unused]]
 double Moon::getMass() {
     return this->mass;
 }
-
-void Moon::setMass(double mass) {
-    this->mass = mass;
+[[maybe_unused]]
+void Moon::setMass(double m) {
+    mass = m;
 }
-
+[[maybe_unused]]
 double Moon::getRadius() {
-    return this->radius;
+    return radius;
 }
-
-void Moon::setRadius(double radius) {
-    this->radius = radius;
+[[maybe_unused]]
+void Moon::setRadius(double r) {
+    radius = r;
 }
-
+[[maybe_unused]]
 double Moon::getDistanceFromPlanet() {
-    return this->distanceFromPlanet;
+    return distanceFromPlanet;
 }
-
-void Moon::setDistanceFromPlanet(double distanceFromPlanet) {
-    this->distanceFromPlanet = distanceFromPlanet;
+[[maybe_unused]]
+void Moon::setDistanceFromPlanet(double dist) {
+    distanceFromPlanet = dist;
 }
-
+[[maybe_unused]]
 double Moon::getOrbitSpeed() {
-    return this->orbitSpeed;
+    return orbitSpeed;
 }
-
-void Moon::setOrbitSpeed(double orbitSpeed) {
-    this->orbitSpeed = orbitSpeed;
+[[maybe_unused]]
+void Moon::setOrbitSpeed(double os) {
+    this->orbitSpeed = os;
 }
-
+[[maybe_unused]]
 double Moon::getRotationSpeed() {
-    return this->rotationSpeed;
+    return rotationSpeed;
 }
-
+[[maybe_unused]]
 double Moon::getColor() {
-    return this->color;
+    return color;
 }
-
-void Moon::setColor(double color) {
-    this->color = color;
+[[maybe_unused]]
+void Moon::setColor(double c) {
+    color = c;
 }
-
+[[maybe_unused]]
 double Moon::getTexture() {
-    return this->texture;
+    return texture;
 }
-
-void Moon::setTexture(double texture) {
-    this->texture = texture;
+[[maybe_unused]]
+void Moon::setTexture(double text) {
+    texture = text;
 }
-
-
-void Moon::setRotationSpeed(double rotationSpeed) {
-    this->rotationSpeed = rotationSpeed;
+[[maybe_unused]]
+void Moon::setRotationSpeed(double rs) {
+    this->rotationSpeed = rs;
 }
-
+[[maybe_unused]]
 double Moon::getRotationAngle() {
-    return this->rotationAngle;
+    return rotationAngle;
 }
-
-void Moon::setRotationAngle(double rotationAngle) {
-    this->rotationAngle = rotationAngle;
+[[maybe_unused]]
+void Moon::setRotationAngle(double rAng) {
+    this->rotationAngle = rAng;
 }
 
 // friend ostream for <<
@@ -82,7 +82,7 @@ Moon::~Moon() {
 }
 
 Moon::Moon(std::string name, double mass, double radius, double distanceFromPlanet, double orbitSpeed)
-    : CelestialObject(name, 0, 0), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed) {
+    : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed) {
     std::cout << "Moon constructor called!" << std::endl;
 }
 
@@ -96,4 +96,18 @@ Moon::Moon(const Moon& moon) : CelestialObject(moon.name, 0, 0){
     this->color = moon.color;
     this->texture = moon.texture;
     this->rotationAngle = moon.rotationAngle;
+}
+
+// Add the equal operator
+Moon& Moon::operator=(const Moon& moon){
+    std::cout<<"Moon assignment operator called!"<<std::endl;
+    this->mass = moon.mass;
+    this->radius = moon.radius;
+    this->distanceFromPlanet = moon.distanceFromPlanet;
+    this->orbitSpeed = moon.orbitSpeed;
+    this->rotationSpeed = moon.rotationSpeed;
+    this->color = moon.color;
+    this->texture = moon.texture;
+    this->rotationAngle = moon.rotationAngle;
+    return *this;
 }

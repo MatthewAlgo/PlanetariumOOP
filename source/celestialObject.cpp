@@ -1,31 +1,34 @@
 #include "celestialObject.h"
 
 // Implement all the functions in the header file of celestialObject
-void CelestialObject::draw() {
-    // Draw the celestial object
-}
-
+[[maybe_unused]]
 std::string CelestialObject::getName() const {
-    return this->name;
+    return name;
 }
-
-void CelestialObject::setName(std::string name) {
-    this->name = name;
+[[maybe_unused]]
+void CelestialObject::setName(std::string n) {
+    name = n;
 }
-
+[[maybe_unused]]
 double CelestialObject::getColor() const{
-    return this->color;
+    return color;
+}
+[[maybe_unused]]
+void CelestialObject::setColor(double c) {
+    this->color = c;
 }
 
-void CelestialObject::setColor(double color) {
-    this->color = color;
-}
-
-
+[[maybe_unused]]
 double CelestialObject::getTexture() const{
-    return this->texture;
+    return texture;
+}
+[[maybe_unused]]
+void CelestialObject::setTexture(double t) {
+    texture = t;
 }
 
-void CelestialObject::setTexture(double texture) {
-    this->texture = texture;
+CelestialObject::CelestialObject(std::string n, double c, double t){
+    name = n;
+    color = c;
+    texture = t;
 }

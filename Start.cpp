@@ -1,9 +1,10 @@
 #include <iostream>
+#include "abstract/universe.h"
 
 int main() {
-    
-    while(true){ // Simulate a loop, the loop which handles events
 
-    }
+    Universe universe;
+    std::cout<<universe<<std::endl;
+
     return 0;
 }

@@ -1,93 +1,94 @@
 #include "planet.h"
 
 // Constructor
-Planet::Planet(std::string name, double mass, double radius, double distanceFromSun, double orbitSpeed) : CelestialObject(name, 0, 0)
+Planet::Planet(std::string name, double mass, double radius, double distFromSun, double orbitSpeed) : CelestialObject(name, 0, 0)
 {
     this->mass = mass;
     this->radius = radius;
-    this->distanceFromSun = distanceFromSun;
+    this->distanceFromSun = distFromSun;
     this->orbitSpeed = orbitSpeed;
 }
 
 // Getters and setters for all the private variables
+[[maybe_unused]]
 double Planet::getMass() const
 {
-    return this->mass;
+    return mass;
 }
-
-void Planet::setMass(double mass)
+[[maybe_unused]]
+void Planet::setMass(double m)
 {
-    this->mass = mass;
+    mass = m;
 }
-
+[[maybe_unused]]
 double Planet::getRadius() const
 {
-    return this->radius;
+    return radius;
 }
-
-void Planet::setRadius(double radius)
+[[maybe_unused]]
+void Planet::setRadius(double r)
 {
-    this->radius = radius;
+    radius = r;
 }
-
+[[maybe_unused]]
 double Planet::getDistanceFromSun() const
 {
-    return this->distanceFromSun;
+    return distanceFromSun;
 }
-
-void Planet::setDistanceFromSun(double distanceFromSun)
+[[maybe_unused]]
+void Planet::setDistanceFromSun(double dist)
 {
-    this->distanceFromSun = distanceFromSun;
+    this->distanceFromSun = dist;
 }
-
+[[maybe_unused]]
 double Planet::getOrbitSpeed() const
 {
     return this->orbitSpeed;
 }
-
-void Planet::setOrbitSpeed(double orbitSpeed)
+[[maybe_unused]]
+void Planet::setOrbitSpeed(double os)
 {
-    this->orbitSpeed = orbitSpeed;
+    this->orbitSpeed = os;
 }
-
+[[maybe_unused]]
 double Planet::getColor() const
 {
     return this->color;
 }
-
-void Planet::setColor(double color)
+[[maybe_unused]]
+void Planet::setColor(double c)
 {
-    this->color = color;
+    this->color = c;
 }
-
+[[maybe_unused]]
 double Planet::getTexture() const
 {
-    return this->texture;
+    return texture;
 }
-
-void Planet::setTexture(double texture)
+[[maybe_unused]]
+void Planet::setTexture(double t)
 {
-    this->texture = texture;
+    this->texture = t;
 }
-
+[[maybe_unused]]
 double Planet::getRotationSpeed() const
 {
-    return this->rotationSpeed;
+    return rotationSpeed;
 }
-
-void Planet::setRotationSpeed(double rotationSpeed)
+[[maybe_unused]]
+void Planet::setRotationSpeed(double rs)
 {
-    this->rotationSpeed = rotationSpeed;
+    rotationSpeed = rs;
 }
-
+[[maybe_unused]]
 double Planet::getRotationAngle() const
 {
-    return this->rotationAngle;
+    return rotationAngle;
 }
-
-void Planet::setRotationAngle(double rotationAngle)
+[[maybe_unused]]
+void Planet::setRotationAngle(double rA)
 {
-    this->rotationAngle = rotationAngle;
+    this->rotationAngle = rA;
 }
 
 // friend ostream for <<
@@ -142,7 +143,9 @@ Planet::~Planet()
 }
 
 void Planet::draw()
-{}
+{
+    std::cout << "Drawing planet: " << this->name << std::endl;
+}
 
 // Getter for the moons
 std::vector<Moon>& Planet::getMoons()

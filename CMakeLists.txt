@@ -79,20 +79,11 @@ endfunction()
 # find_package(Threads REQUIRED)
 
 ###############################################################################
-file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
+file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source/abstract/*.cpp)
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} Start.cpp ${sources} ${headers}
-    source/blackHole.cpp include/blackHole.h
-    source/planet.cpp include/planet.h
-    source/moon.cpp include/moon.h
-    source/star.cpp include/star.h
-    source/celestialObject.cpp include/celestialObject.h
-    source/dwarfStar.cpp include/dwarfStar.h
-    source/galaxy.cpp include/galaxy.h
-    source/hyperGiantStar.cpp include/hyperGiantStar.h
-    source/starCluster.cpp include/starCluster.h)
+add_executable(${PROJECT_NAME} Start.cpp ${sources} ${headers})
 
 ###############################################################################
 

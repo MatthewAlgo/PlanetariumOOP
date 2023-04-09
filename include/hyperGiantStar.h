@@ -12,8 +12,7 @@ protected:
 public:
     HyperGiantStar();
     void draw() override;
-    HyperGiantStar(std::string name, double mass, double radius, double distanceFromSun, double orbitSpeed, 
-        double yearsToLive, double expansionScale, double expansionSpeed);
+    HyperGiantStar(std::string name, double mass, double radius, double distanceFromSun, double orbitSpeed);
     ~HyperGiantStar();
     HyperGiantStar(const HyperGiantStar& hyperGiantStar);
     HyperGiantStar& operator=(const HyperGiantStar& hyperGiantStar);

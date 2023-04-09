@@ -1,48 +1,48 @@
 #include "star.h"
 
-// Implement all the functions in the header file of star
 void Star::draw() {
     // Draw the star
 }
 
+[[maybe_unused]]
 double Star::getMass() const {
-    return this->mass;
+    return mass;
 }
-
-void Star::setMass(double mass) {
-    this->mass = mass;
+[[maybe_unused]]
+void Star::setMass(double m) {
+    mass = m;
 }
-
+[[maybe_unused]]
 double Star::getRadius() const{
-    return this->radius;
+    return radius;
 }
-
-void Star::setRadius(double radius) {
-    this->radius = radius;
+[[maybe_unused]]
+void Star::setRadius(double r) {
+    radius = r;
 }
-
+[[maybe_unused]]
 double Star::getDistanceFromCenterOfGalaxy() const{
-    return this->distanceFromCenterOfGalaxy;
+    return distanceFromCenterOfGalaxy;
 }
-
-void Star::setDistanceFromCenterOfGalaxy(double distanceFromCenterOfGalaxy) {
-    this->distanceFromCenterOfGalaxy = distanceFromCenterOfGalaxy;
+[[maybe_unused]]
+void Star::setDistanceFromCenterOfGalaxy(double dist) {
+    distanceFromCenterOfGalaxy = dist;
 }
-
+[[maybe_unused]]
 double Star::getRotationSpeed() const {
-    return this->rotationSpeed;
+    return rotationSpeed;
 }
-
-void Star::setRotationSpeed(double rotationSpeed) {
-    this->rotationSpeed = rotationSpeed;
+[[maybe_unused]]
+void Star::setRotationSpeed(double rot) {
+    rotationSpeed = rot;
 }
-
+[[maybe_unused]]
 double Star::getRotationAngle() const {
-    return this->rotationAngle;
+    return rotationAngle;
 }
-
-void Star::setRotationAngle(double rotationAngle) {
-    this->rotationAngle = rotationAngle;
+[[maybe_unused]]
+void Star::setRotationAngle(double rA) {
+    rotationAngle = rA;
 }
 
 // friend ostream for <<
@@ -63,25 +63,25 @@ std::ostream &operator<<(std::ostream &os, const Star &star) {
 
 // Operator= and copy constructor
 Star::Star(const Star &star) : CelestialObject(star.name, 0, 0){
-    this->mass = star.mass;
-    this->radius = star.radius;
-    this->distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
-    this->orbitSpeed = star.orbitSpeed;
-    this->rotationSpeed = star.rotationSpeed;
-    this->rotationAngle = star.rotationAngle;
-    this->name = star.name;
-    this->planets = star.planets;
+    mass = star.mass;
+    radius = star.radius;
+    distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
+    orbitSpeed = star.orbitSpeed;
+    rotationSpeed = star.rotationSpeed;
+    rotationAngle = star.rotationAngle;
+    name = star.name;
+    planets = star.planets;
 }
 
 Star &Star::operator=(const Star &star) {
-    this->mass = star.mass;
-    this->radius = star.radius;
-    this->distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
-    this->orbitSpeed = star.orbitSpeed;
-    this->rotationSpeed = star.rotationSpeed;
-    this->rotationAngle = star.rotationAngle;
-    this->name = star.name;
-    this->planets = star.planets;
+    mass = star.mass;
+    radius = star.radius;
+    distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
+    orbitSpeed = star.orbitSpeed;
+    rotationSpeed = star.rotationSpeed;
+    rotationAngle = star.rotationAngle;
+    name = star.name;
+    planets = star.planets;
     return *this;
 }
 
@@ -91,11 +91,11 @@ Star::~Star() {
 
 // Constructor
 Star::Star(std::string name, double mass, double radius, double distanceFromCenterOfGalaxy, double orbitSpeed) : CelestialObject(name, 0, 0) {
-    this->mass = mass;
-    this->radius = radius;
-    this->distanceFromCenterOfGalaxy = distanceFromCenterOfGalaxy;
-    this->orbitSpeed = orbitSpeed;
-    this->name = name;
+    mass = mass;
+    radius = radius;
+    distanceFromCenterOfGalaxy = distanceFromCenterOfGalaxy;
+    orbitSpeed = orbitSpeed;
+    name = name;
 }
 
 // Implement getter for the moons vector

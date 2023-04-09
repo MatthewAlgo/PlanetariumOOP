@@ -1,12 +1,7 @@
 #include "hyperGiantStar.h"
 
-HyperGiantStar:: HyperGiantStar(std::string name, double mass, double radius, double distanceFromSun, double orbitSpeed, double yearsToLive, double expansionScale, double expansionSpeed) 
-        : Star(name, mass, radius, distanceFromSun, orbitSpeed)
-{
-    this->yearsToLive = 0;
-    this->expansionScale = 0;
-    this->expansionSpeed = 0;
-}
+HyperGiantStar::HyperGiantStar(std::string name, double mass, double radius, double distanceFromSun, double orbitSpeed)
+        : Star(name, mass, radius, distanceFromSun, orbitSpeed){}
 
 void HyperGiantStar::draw()
 {
@@ -37,34 +32,35 @@ HyperGiantStar& HyperGiantStar::operator=(const HyperGiantStar& hyperGiantStar)
 }
 
 // Getters and setters
+[[maybe_unused]]
 double HyperGiantStar::getYearsToLive() const
 {
     return this->yearsToLive;
 }
-
-void HyperGiantStar::setYearsToLive(double yearsToLive)
+[[maybe_unused]]
+void HyperGiantStar::setYearsToLive(double yToL)
 {
-    this->yearsToLive = yearsToLive;
+    this->yearsToLive = yToL;
 }
-
+[[maybe_unused]]
 double HyperGiantStar::getExpansionScale() const
 {
     return this->expansionScale;
 }
-
-void HyperGiantStar::setExpansionScale(double expansionScale)
+[[maybe_unused]]
+void HyperGiantStar::setExpansionScale(double expScale)
 {
-    this->expansionScale = expansionScale;
+    this->expansionScale = expScale;
 }
-
+[[maybe_unused]]
 double HyperGiantStar::getExpansionSpeed() const
 {
     return this->expansionSpeed;
 }
-
-void HyperGiantStar::setExpansionSpeed(double expansionSpeed)
+[[maybe_unused]]
+void HyperGiantStar::setExpansionSpeed(double expSpeed)
 {
-    this->expansionSpeed = expansionSpeed;
+    this->expansionSpeed = expSpeed;
 }
 
 // Overloaded operators

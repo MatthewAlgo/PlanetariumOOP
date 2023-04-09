@@ -5,34 +5,35 @@ void DwarfStar::draw() {
     // Draw the dwarf star
 }
 
+[[maybe_unused]]
 double DwarfStar::getMagnetismLevel() const {
-    return this->magnetismLevel;
+    return magnetismLevel;
 }
-
-void DwarfStar::setMagnetismLevel(double magnetismLevel) {
-    this->magnetismLevel = magnetismLevel;
+[[maybe_unused]]
+void DwarfStar::setMagnetismLevel(double magLevel) {
+    this->magnetismLevel = magLevel;
 }
-
+[[maybe_unused]]
 double DwarfStar::getTemperature() const {
     return this->temperature;
 }
-
-void DwarfStar::setTemperature(double temperature) {
-    this->temperature = temperature;
+[[maybe_unused]]
+void DwarfStar::setTemperature(double temp) {
+    this->temperature = temp;
 }
-
+[[maybe_unused]]
 double DwarfStar::getLuminosity() const {
     return this->luminosity;
 }
-
-void DwarfStar::setLuminosity(double luminosity) {
-    this->luminosity = luminosity;
+[[maybe_unused]]
+void DwarfStar::setLuminosity(double lum) {
+    this->luminosity = lum;
 }
 
-DwarfStar::DwarfStar(std::string name, double mass, double radius, double distanceFromCenterOfGalaxy, double rotationSpeed, double magnetismLevel, double temperature, double luminosity) : Star(name, mass, radius, distanceFromCenterOfGalaxy, rotationSpeed) {
-    this->magnetismLevel = magnetismLevel;
-    this->temperature = temperature;
-    this->luminosity = luminosity;
+DwarfStar::DwarfStar(std::string n, double m, double r, double d, double rotSpeed, double magLevel, double temp, double lum) : Star(n, m, r, d, rotSpeed) {
+    magnetismLevel = magLevel;
+    temperature = temp;
+    luminosity = lum;
 }
 
 DwarfStar::~DwarfStar() {

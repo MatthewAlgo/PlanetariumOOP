@@ -5,20 +5,21 @@ void BlackHole::draw() {
     // Draw the black hole
 }
 
+[[maybe_unused]]
 double BlackHole::getMass() const {
-    return this->mass;
+    return mass;
 }
-
-void BlackHole::setMass(double mass) {
-    this->mass = mass;
+[[maybe_unused]]
+void BlackHole::setMass(double m) {
+    mass = m;
 }
-
+[[maybe_unused]]
 double BlackHole::getRadius() const{
-    return this->radius;
+    return radius;
 }
-
-void BlackHole::setRadius(double radius) {
-    this->radius = radius;
+[[maybe_unused]]
+void BlackHole::setRadius(double r) {
+    radius = r;
 }
 
 
@@ -31,14 +32,13 @@ std::ostream &operator<<(std::ostream &os, const BlackHole &blackHole) {
 }
 
 // Constructor, copy constructor, destructor, and assignment operator
-BlackHole::BlackHole(std::string name, double activityLevel, double schwarzschildRadius, 
-        double radius, double mass) : CelestialObject(name, 0, 0){
+BlackHole::BlackHole(std::string name, double a, double s, double r, double m) : CelestialObject(name, 0, 0){
     // Init the variables
-    this->activityLevel = activityLevel;
-    this->schwarzschildRadius = schwarzschildRadius;
-    this->radius = radius;
-    this->mass = mass;
-    
+    activityLevel = a;
+    schwarzschildRadius = s;
+    radius = r;
+    mass = m;
+
 }
 
 BlackHole::~BlackHole() {
@@ -46,20 +46,20 @@ BlackHole::~BlackHole() {
 }
 
 BlackHole::BlackHole(const BlackHole& blackHole) : CelestialObject(blackHole) {
-    this->activityLevel = blackHole.activityLevel;
-    this->schwarzschildRadius = blackHole.schwarzschildRadius;
-    this->radius = blackHole.radius;
-    this->mass = blackHole.mass;
+    activityLevel = blackHole.activityLevel;
+    schwarzschildRadius = blackHole.schwarzschildRadius;
+    radius = blackHole.radius;
+    mass = blackHole.mass;
 }
 
 BlackHole& BlackHole::operator=(const BlackHole& blackHole) {
     if (this == &blackHole) {
         return *this;
     }
-    CelestialObject::operator=(blackHole);
-    this->activityLevel = blackHole.activityLevel;
-    this->schwarzschildRadius = blackHole.schwarzschildRadius;
-    this->radius = blackHole.radius;
-    this->mass = blackHole.mass;
+    CelestialObject::operator=(blackHole); // Call the base class assignment operator
+    activityLevel = blackHole.activityLevel;
+    schwarzschildRadius = blackHole.schwarzschildRadius;
+    radius = blackHole.radius;
+    mass = blackHole.mass;
     return *this;
 }
