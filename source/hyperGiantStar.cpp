@@ -1,9 +1,9 @@
 #include "hyperGiantStar.h"
 
-HyperGiantStar::HyperGiantStar(const std::string& name, double mass, double radius, double distanceFromSun, double orbitSpeed)
-        : Star(name, mass, radius, distanceFromSun, orbitSpeed), expansionScale(0), expansionSpeed(0){}
+HyperGiantStar::HyperGiantStar(const std::string& name, double mass, double radius, double distanceFromSun, double orbitSpeed, double gal_X, double gal_Y, double gal_R)
+        : Star(name, mass, radius, distanceFromSun, orbitSpeed, gal_X, gal_Y, gal_R), expansionScale(0), expansionSpeed(0){}
 
-void HyperGiantStar::draw()
+void HyperGiantStar::draw(std::shared_ptr<sf::RenderWindow> window)
 {
     std::cout << "Drawing a hyperGiantStar" << std::endl;
 }

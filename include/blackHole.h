@@ -3,7 +3,7 @@
 
 #include "celestialObject.h"
 
-class BlackHole : public CelestialObject
+class BlackHole : protected CelestialObject
 {
 protected:
     double activityLevel;
@@ -11,7 +11,7 @@ protected:
     double radius;
     double mass;
 public:
-    void draw() override;
+    void draw(std::shared_ptr<sf::RenderWindow> window) override;
     BlackHole();
     BlackHole(const std::string& name, double activityLevel, double schwarzschildRadius, double radius, double mass);
     BlackHole(double activityLevel, double schwarzschildRadius, double radius, double mass);

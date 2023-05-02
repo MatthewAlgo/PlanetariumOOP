@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.24)
 # for now, the project name is used as the executable name
 project(oop)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -60,26 +60,50 @@ endfunction()
 
 # Will use SFML or other library in the future?
 # external dependencies with FetchContent
-#include(FetchContent)
+include(FetchContent)
 #
 # NOTE: Also update env vars used for caching in .github/workflows/cmake.yml
-#FetchContent_Declare(
-#        SomeLib
-#        GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
-#        GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
-#        GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
-#)
+FetchContent_Declare(
+       SFML_LIB
+       GIT_REPOSITORY https://github.com/SFML/SFML.git
+       GIT_TAG        2.5.1 # <which tag/branch @ <some_date>>
+    #    GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
+)
+
+## Fetch content only for SFML graphics and window
+FetchContent_GetProperties(SFML_LIB)
+if(NOT SFML_LIB_POPULATED)
+    FetchContent_Populate(SFML_LIB)
+    set(SFML_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+    set(SFML_BUILD_DOC OFF CACHE BOOL "" FORCE)
+    set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
+    set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
+    set(SFML_INSTALL_PKGCONFIG_FILES OFF CACHE BOOL "" FORCE)
+    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+    add_subdirectory(${sfml_lib_SOURCE_DIR} ${sfml_lib_BINARY_DIR})
+endif()
+
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR ${sfml_lib_BINARY_DIR}/lib/cmake/SFML)
+# find_package(SFML COMPONENTS graphics window REQUIRED)
+
+
 #
-#FetchContent_MakeAvailable(SomeLib)
+FetchContent_MakeAvailable(SFML_LIB)
 
 ###############################################################################
 
 # external dependencies with find_package
 
 # find_package(Threads REQUIRED)
+# find_package(SFML COMPONENTS graphics window REQUIRED)
 
 ###############################################################################
-file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source/abstract/*.cpp)
+file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp 
+                                    ${CMAKE_CURRENT_SOURCE_DIR}/source/abstract/*.cpp
+                                    ${CMAKE_CURRENT_SOURCE_DIR}/source/window/*.cpp
+                                    ${CMAKE_CURRENT_SOURCE_DIR}/source/except/*.cpp
+                                    ${CMAKE_CURRENT_SOURCE_DIR}/source/structs/*.cpp)
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
@@ -124,7 +148,7 @@ target_include_directories(
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
 #target_link_directories(${PROJECT_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
-#target_link_libraries(${PROJECT_NAME} <SomeLib>)
+target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window)
 
 ###############################################################################
 

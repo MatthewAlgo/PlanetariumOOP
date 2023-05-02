@@ -14,6 +14,9 @@ class Constants
     static const int BLACKHOLEMASS_MASSIVE;
     static const int BLACKHOLERADIUS_MASSIVE;
     static const int RADIUS_STELLAR;
+
+    static const int WindowWidth;
+    static const int WindowHeight;
 };
 
 #endif

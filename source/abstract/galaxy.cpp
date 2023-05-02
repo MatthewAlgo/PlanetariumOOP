@@ -1,9 +1,11 @@
 #include "abstract/galaxy.h"
+#include "structs/mt_randomengine.h"
 
 Galaxy::~Galaxy() {
 }
 
 Galaxy::Galaxy(const Galaxy& galaxy) : name(galaxy.name), distanceFromCenterOfUniverse(galaxy.distanceFromCenterOfUniverse), rotationSpeed(galaxy.rotationSpeed), radius(galaxy.radius), luminosity(galaxy.luminosity), starClusters(galaxy.starClusters), blackHole(galaxy.blackHole) {
+    position = galaxy.position;
 }
 
 Galaxy& Galaxy::operator=(const Galaxy& galaxy) {
@@ -16,6 +18,7 @@ Galaxy& Galaxy::operator=(const Galaxy& galaxy) {
     rotationSpeed = galaxy.rotationSpeed;
     luminosity = galaxy.luminosity;
     blackHole = galaxy.blackHole;
+    position = galaxy.position;
     return *this;
 }
 
@@ -42,9 +45,10 @@ std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy){
     return os;
 }
 
-Galaxy::Galaxy(const std::string& n, double dist, double rad) : name(n), distanceFromCenterOfUniverse(dist),rotationSpeed(0), radius(rad), luminosity(0), blackHole(BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE)) {
+Galaxy::Galaxy(const std::string& n, double dist, double rad, std::shared_ptr<sf::RenderWindow> window) : name(n), distanceFromCenterOfUniverse(dist),rotationSpeed(0), radius(rad), luminosity(0), blackHole(BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE)) {
     // Create a galaxy with a central black hole
-    blackHole.draw();
+    position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
+    draw(window); // Draw the black hole in the center of the galaxy -> Only one black hole per galaxy
 }
 
 // Getter and setter for the rotation speed and luminosity
@@ -66,4 +70,27 @@ void Galaxy::setLuminosity(double lum) {
 
 void Galaxy::addStar(const Star& star) {
     lonelyStars.push_back(star);
+}
+
+std::pair<double, double> Galaxy::getPosition() const {
+    return position;
+}
+
+void Galaxy::setPosition(const std::pair<double, double>& pos) {
+    position = pos;
+}
+
+double Galaxy::getRadius() const {
+    return radius;
+}
+
+
+// Draw function for the black hole
+void Galaxy::draw(std::shared_ptr<sf::RenderWindow> window) {
+    // Draw the black hole in the center of the galaxy
+    // TODO : Fix this (access problem)
+    // if(blackHole.getPositon() != position){
+    //     blackHole.setPosition(position);
+    // }
+    blackHole.draw(window);
 }

@@ -71,14 +71,14 @@ void Universe::addGalaxy(const Galaxy& galaxy) {
     galaxies.push_back(galaxy);
 }
 
-void Universe::createBigBang() {
+void Universe::createBigBang(std::shared_ptr<sf::RenderWindow> window) {
     // Create the big bang - init the stars, galaxies, black holes, etc.
     for (int i = 0; i < numberOfGalaxies; i++) {
         std::string name = "Galaxy " + std::to_string(i);
-        Galaxy galaxy(name, i, i);
+        Galaxy galaxy(name, i, i, window);
         for (int j = 0; j < Constants::NUMBER_OF_STARS_PER_GALAXY; j++) {
             std::string starName = "Star " + std::to_string(j);
-            Star star(starName, Constants::STARMASS_MASSIVE, i, j, i);
+            Star star(starName, Constants::STARMASS_MASSIVE, i, j, 1, galaxy.getPosition().first, galaxy.getPosition().second, galaxy.getRadius(), window);
             galaxy.addStar(star);
         }
         if (galaxy.getRotationSpeed() == 0 && galaxy.getLuminosity() == 0) {

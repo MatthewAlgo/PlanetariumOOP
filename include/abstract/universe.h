@@ -29,7 +29,7 @@ public:
 
     // Add an object to the universe
     void addGalaxy(const Galaxy& galaxy);
-    void createBigBang();
+    void createBigBang(std::shared_ptr<sf::RenderWindow> window);
     void startTime();
     void checkTime();
 };

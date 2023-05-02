@@ -10,3 +10,6 @@ const int Constants::BLACKHOLEMASS_SUPERMASSIVE = 100;
 const int Constants::BLACKHOLEMASS_MASSIVE = 10;
 const int Constants::BLACKHOLERADIUS_MASSIVE = 10;
 const int Constants::RADIUS_STELLAR = 1;
+
+const int Constants::WindowWidth = 1000;
+const int Constants::WindowHeight = 500;

@@ -18,7 +18,7 @@ private:
     std::vector<Moon> moons;
 
 public:
-    void draw() override;
+    void draw(std::shared_ptr<sf::RenderWindow> window) override;
 
     // Constructor
     Planet(const std::string& name, double mass, double radius, double distanceFromSun, double orbitSpeed);

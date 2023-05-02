@@ -1,4 +1,6 @@
 #include "celestialObject.h"
+#include "structs/mt_randomengine.h"
+#include "constants.h"
 
 // Implement all the functions in the header file of celestialObject
 //[[maybe_unused]]
@@ -28,6 +30,15 @@
 //}
 
 CelestialObject::CelestialObject(const std::string& n, double c, double t) : name(n), color(c), texture(t) {
+    position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
 }
 CelestialObject::~CelestialObject() {
+}
+
+std::pair<double, double> CelestialObject::getPositon() const {
+    return position;
+}
+
+void CelestialObject::setPositon(const std::pair<double, double>& position) {
+    this->position = position;
 }

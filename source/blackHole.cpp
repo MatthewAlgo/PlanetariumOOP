@@ -1,7 +1,7 @@
 #include "blackHole.h"
 
 // Implement all the functions in the header file of blackHole
-void BlackHole::draw() {
+void BlackHole::draw(std::shared_ptr<sf::RenderWindow> window) {
     // Draw the black hole
     std::cout << "Drawing a black hole" << std::endl;
 }

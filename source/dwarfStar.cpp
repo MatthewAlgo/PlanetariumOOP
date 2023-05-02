@@ -1,7 +1,7 @@
 #include "dwarfStar.h"
 
 // Implement all the functions in the header file of dwarfStar
-void DwarfStar::draw() {
+void DwarfStar::draw(std::shared_ptr<sf::RenderWindow> window) {
     // Draw the dwarf star
 }
 
@@ -30,7 +30,8 @@ void DwarfStar::draw() {
 //    this->luminosity = lum;
 //}
 
-DwarfStar::DwarfStar(const std::string& n, double m, double r, double d, double orbSpeed, double magLevel, double temp, double lum) : Star(n, m, r, d, orbSpeed), magnetismLevel(magLevel), temperature(temp), luminosity(lum) {
+DwarfStar::DwarfStar(const std::string& n, double m, double r, double d, double orbSpeed, double magLevel, double temp, double lum, double gal_X, double gal_Y, double gal_R, std::shared_ptr<sf::RenderWindow> window) 
+            : Star(n, m, r, d, orbSpeed, gal_X, gal_Y, gal_Y, window), magnetismLevel(magLevel), temperature(temp), luminosity(lum) {
 }
 
 DwarfStar::~DwarfStar() {

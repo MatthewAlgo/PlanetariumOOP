@@ -10,8 +10,8 @@ private:
     double luminosity;
 public:
     DwarfStar();
-    void draw() override;
-    DwarfStar(const std::string& n, double mass, double radius, double distance, double orbSpeed, double magLevel, double temp, double lum);
+    void draw(std::shared_ptr<sf::RenderWindow> window) override;
+    DwarfStar::DwarfStar(const std::string& n, double m, double r, double d, double orbSpeed, double magLevel, double temp, double lum, double gal_X, double gal_Y, double gal_R);
     ~DwarfStar();
     DwarfStar(const DwarfStar& dwarfStar);
     DwarfStar& operator=(const DwarfStar& dwarfStar);
