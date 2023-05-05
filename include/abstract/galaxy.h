@@ -25,7 +25,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy);
 
     // Constructor, copy constructor and assignment operator
-    Galaxy(const std::string& name, double distanceFromCenterOfUniverse, double radius, std::shared_ptr<sf::RenderWindow> window);
+    Galaxy(const std::string& name, double distanceFromCenterOfUniverse, double radius);
     Galaxy(const Galaxy& galaxy);
     ~Galaxy();
 
@@ -40,11 +40,14 @@ public:
 
     void addStar(const Star& star);
 
-    void draw(std::shared_ptr<sf::RenderWindow> window); // Draw the galaxy
+    void draw(sf::RenderWindow* window); // Draw the galaxy
 
     std::pair<double, double> getPosition() const;
     void setPosition(const std::pair<double, double>& position);
     double getRadius() const;
+
+    std::vector<Star>& getLonelyStars();
+    void setLonelyStars(const std::vector<Star>& stars);
 };
 
 

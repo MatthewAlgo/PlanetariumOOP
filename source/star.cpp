@@ -1,17 +1,20 @@
 #include "star.h"
 #include "structs/mt_randomengine.h"
 #include "constants.h"
+#include "except/exceptions.h"
 
-void Star::draw(std::shared_ptr<sf::RenderWindow> window) {
+void Star::draw(sf::RenderWindow* window) {
     // Draw a yellow small circle for the star at the position position
+
+    if (window == nullptr) {
+        throw WindowNotFoundException();
+    }
+
     sf::CircleShape star;
     star.setRadius(radius);
     star.setFillColor(sf::Color::Yellow);
     star.setPosition(position.first, position.second);
     window->draw(star);
-
-    // Draw the star
-    std::cout<<"The star is drawn"<<std::endl;
 }
 
 //[[maybe_unused]]
@@ -71,7 +74,7 @@ Star::~Star() {
 }
 
 // Constructor
-Star::Star(const std::string& n, double m, double r, double o, double d, double gal_X, double gal_Y, double gal_R, std::shared_ptr<sf::RenderWindow> window) : CelestialObject(n, 0, 0), mass(m), radius(r),orbitSpeed(o), distanceFromCenterOfGalaxy(d) {
+Star::Star(const std::string& n, double m, double r, double o, double d, double gal_X, double gal_Y, double gal_R) : CelestialObject(n, 0, 0), mass(m), radius(r),orbitSpeed(o), distanceFromCenterOfGalaxy(d) {
     // Init the variables
     if (radius < 0) {
         throw std::invalid_argument("Radius cannot be negative");
@@ -95,11 +98,13 @@ Star::Star(const std::string& n, double m, double r, double o, double d, double 
         position = randomPositionInCircle(gal_X, gal_Y, gal_R);
     }
 
-    draw(window);
-
 }
 
 //// Implement getter for the moons vector
-//std::vector<Planet> &Star::getPlanets() {
-//    return planets;
-//}
+std::vector<Planet> &Star::getPlanets() {
+   return planets;
+}
+
+void Star::addPlanet(const Planet& planet) {
+    planets.push_back(planet);
+}

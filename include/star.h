@@ -23,14 +23,15 @@ protected:
     std::vector<Planet> planets;
 
     // Image of the star
-    std::shared_ptr<sf::CircleShape> starObj;
+    sf::CircleShape* starObj;
 
 public:
     // Constructor, destructor, copy constructor, assignment operator, getters and setters
-    void draw(std::shared_ptr<sf::RenderWindow> window) override;
+    void draw(sf::RenderWindow* window) override;
 
     // Constructor
-    Star(const std::string& name, double mass, double radius, double orbitSpeed, double distanceFromCenterOfGalaxy, double gal_X, double gal_Y, double gal_R, std::shared_ptr<sf::RenderWindow> window);
+    Star(const std::string& name, double mass, double radius, double orbitSpeed, double distanceFromCenterOfGalaxy, double gal_X, double gal_Y, double gal_R);
+    // Star(name, mass, radius, orbitSpeed, distanceFromCenterOfGalaxy, gal_X, gal_Y, gal_R, window)
 
     // Getters and setters for all the private variables
 //    double getMass() const;
@@ -40,7 +41,8 @@ public:
 //    double getDistanceFromCenterOfGalaxy() const;
 //    void setDistanceFromCenterOfGalaxy(double distanceFromSun);
 //    // Getter for the planets vector
-//    std::vector<Planet> &getPlanets();
+    std::vector<Planet> &getPlanets();
+    void addPlanet(const Planet& planet);
 
     // friend ostream for <<
     friend std::ostream &operator<<(std::ostream &os, const Star &star);

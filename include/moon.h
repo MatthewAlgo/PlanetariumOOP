@@ -15,7 +15,7 @@ private:
 
 public:
     Moon();
-    void draw(std::shared_ptr<sf::RenderWindow> window) override;
+    void draw(sf::RenderWindow* window) override;
 
     // Constructor
     Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed);

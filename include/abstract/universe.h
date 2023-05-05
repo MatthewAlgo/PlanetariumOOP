@@ -3,18 +3,22 @@
 
 #include "abstract/galaxy.h"
 #include "constants.h"
+#include "window/window.h"
 #include <chrono>
 #include <vector>
 
 class Universe
 {
+public:
+    static int numberOfUniverseObjects;
+
 private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
     std::chrono::time_point<std::chrono::steady_clock> begin;
+
 public:
     explicit Universe(int numberOfGalaxies);
-    void draw();
 //    void addGalaxy(Galaxy galaxy);
 //    void removeGalaxy(Galaxy galaxy);
 //    void removeGalaxy(int index);
@@ -29,9 +33,9 @@ public:
 
     // Add an object to the universe
     void addGalaxy(const Galaxy& galaxy);
-    void createBigBang(std::shared_ptr<sf::RenderWindow> window);
+    void createBigBang(MainWindowClass* window);
     void startTime();
-    void checkTime();
+    int checkTime();
 };
 
 

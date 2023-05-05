@@ -18,10 +18,10 @@ private:
     std::vector<Moon> moons;
 
 public:
-    void draw(std::shared_ptr<sf::RenderWindow> window) override;
+    void draw(sf::RenderWindow* window) override;
 
     // Constructor
-    Planet(const std::string& name, double mass, double radius, double distanceFromSun, double orbitSpeed);
+    Planet(const std::string& n, double m, double r, double d, double o, double StarX, double StarY, double StarR);
 
     // Getters and setters for all the private variables
 //    double getMass() const;

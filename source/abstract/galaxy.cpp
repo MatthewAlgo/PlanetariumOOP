@@ -45,10 +45,9 @@ std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy){
     return os;
 }
 
-Galaxy::Galaxy(const std::string& n, double dist, double rad, std::shared_ptr<sf::RenderWindow> window) : name(n), distanceFromCenterOfUniverse(dist),rotationSpeed(0), radius(rad), luminosity(0), blackHole(BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE)) {
+Galaxy::Galaxy(const std::string& n, double dist, double rad) : name(n), distanceFromCenterOfUniverse(dist),rotationSpeed(0), radius(rad), luminosity(0), blackHole(BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE)) {
     // Create a galaxy with a central black hole
     position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
-    draw(window); // Draw the black hole in the center of the galaxy -> Only one black hole per galaxy
 }
 
 // Getter and setter for the rotation speed and luminosity
@@ -72,6 +71,15 @@ void Galaxy::addStar(const Star& star) {
     lonelyStars.push_back(star);
 }
 
+std::vector<Star>& Galaxy::getLonelyStars() {
+    return lonelyStars;
+}
+
+void Galaxy::setLonelyStars(const std::vector<Star>& stars) {
+    lonelyStars = stars;
+}
+
+
 std::pair<double, double> Galaxy::getPosition() const {
     return position;
 }
@@ -86,11 +94,5 @@ double Galaxy::getRadius() const {
 
 
 // Draw function for the black hole
-void Galaxy::draw(std::shared_ptr<sf::RenderWindow> window) {
-    // Draw the black hole in the center of the galaxy
-    // TODO : Fix this (access problem)
-    // if(blackHole.getPositon() != position){
-    //     blackHole.setPosition(position);
-    // }
-    blackHole.draw(window);
+void Galaxy::draw(sf::RenderWindow* window) {
 }

@@ -2,9 +2,11 @@
 
 // Implement all the functions in the header file
 [[maybe_unused]]
-void Moon::draw() {
+void Moon::draw(sf::RenderWindow* window) {
     // Draw the moon
+    std::cout<<"Drawing the moon for a planet\n"<<std::endl;
 }
+
 //[[maybe_unused]]
 //double Moon::getMass() {
 //    return this->mass;
@@ -72,7 +74,7 @@ void Moon::draw() {
 
 // friend ostream for <<
 std::ostream& operator<<(std::ostream& os, const Moon& moon){
-    os << "Moon: " << moon.name << ", Mass: " << moon.mass << ", Radius: " << moon.radius << ", Distance from planet: " << moon.distanceFromPlanet << ", Orbit speed: " << moon.orbitSpeed << ", Rotation speed: " << moon.rotationSpeed << ", Color: " << moon.color << ", Texture: " << moon.texture << ", Rotation angle: " << moon.rotationAngle;
+    os << "Moon: " << moon.name << ", Mass: " << moon.mass << ", Radius: " << moon.radius << ", Distance from planet: " << moon.distanceFromPlanet << ", Orbit speed: " << moon.orbitSpeed << ", Rotation speed: " << moon.rotationSpeed << ", Texture: " << moon.texture << ", Rotation angle: " << moon.rotationAngle;
     return os;
 }
 

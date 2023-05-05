@@ -30,15 +30,17 @@
 //}
 
 CelestialObject::CelestialObject(const std::string& n, double c, double t) : name(n), color(c), texture(t) {
+    // std::cout<<"Default constructor for CelestialObject\n"<<std::endl;
     position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
 }
+
 CelestialObject::~CelestialObject() {
 }
 
-std::pair<double, double> CelestialObject::getPositon() const {
+std::pair<double, double> CelestialObject::getPosition() const {
     return position;
 }
 
-void CelestialObject::setPositon(const std::pair<double, double>& position) {
-    this->position = position;
+void CelestialObject::setPosition(const std::pair<double, double>& p) {
+    position = p;
 }

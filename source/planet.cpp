@@ -1,7 +1,24 @@
 #include "planet.h"
+#include "structs/mt_randomengine.h"
 
 // Constructor
-Planet::Planet(const std::string& n, double m, double r, double d, double o) : CelestialObject(n, 0, 0), mass(m), radius(r), distanceFromSun(d), orbitSpeed(o) {
+Planet::Planet(const std::string& n, double m, double r, double d, double o, double StarX, double StarY, double StarR) : CelestialObject(n, 0, 0), mass(m), radius(r), distanceFromSun(d), orbitSpeed(o) {
+    // Init the variables
+    if (radius < 0) {
+        throw std::invalid_argument("Radius cannot be negative");
+    }
+    if (mass < 0) {
+        throw std::invalid_argument("Mass cannot be negative");
+    }
+    if (orbitSpeed < 0) {
+        throw std::invalid_argument("Orbit speed cannot be negative");
+    }
+    if (distanceFromSun < 0) {
+        throw std::invalid_argument("Distance from sun cannot be negative");
+    }
+
+    // The star is not part of a galaxy
+    position = randomPositionInCircle(StarX, StarY, StarR);
 }
 
 // Getters and setters for all the private variables
@@ -131,9 +148,19 @@ Planet::~Planet()
 {
 }
 
-void Planet::draw()
+void Planet::draw(sf::RenderWindow* window)
 {
-    std::cout << "Drawing planet: " << this->name << std::endl;
+    // Draw the planet
+    sf::CircleShape planet(this->radius);
+    planet.setFillColor(sf::Color::Red);
+    planet.setPosition(position.first, position.second);
+    window->draw(planet);
+
+    // Draw the moons
+    for (auto& moon : this->moons)
+    {
+        moon.draw(window);
+    }
 }
 
 // Getter for the moons

@@ -24,13 +24,15 @@ protected:
     //    double getTexture() const;
     //    void setTexture(double texture);
     
-    virtual void draw(std::shared_ptr<sf::RenderWindow> window) = 0;
-    // Constructor
+
+
+    public:
+    virtual void draw(sf::RenderWindow* window) = 0;
     CelestialObject(const std::string& name, double color, double texture);
     virtual ~CelestialObject();
 
-    std::pair<double, double> getPositon() const;
-    void setPositon(const std::pair<double, double>& position);
+    std::pair<double, double> getPosition() const;
+    void setPosition(const std::pair<double, double>& position);
 };
 
 
