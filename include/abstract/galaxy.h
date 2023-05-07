@@ -40,8 +40,6 @@ public:
 
     void addStar(const Star& star);
 
-    void draw(sf::RenderWindow* window); // Draw the galaxy
-
     std::pair<double, double> getPosition() const;
     void setPosition(const std::pair<double, double>& position);
     double getRadius() const;

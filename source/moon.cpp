@@ -1,10 +1,16 @@
 #include "moon.h"
+#include "except/exceptions.h"
+#include "structs/mt_randomengine.h"
 
 // Implement all the functions in the header file
+
 [[maybe_unused]]
 void Moon::draw(sf::RenderWindow* window) {
     // Draw the moon
-    std::cout<<"Drawing the moon for a planet\n"<<std::endl;
+    sf::CircleShape moonDraw(this->radius);
+    moonDraw.setFillColor(sf::Color::Blue);
+    moonDraw.setPosition(position.first, position.second);
+    window->draw(moonDraw);
 }
 
 //[[maybe_unused]]
@@ -80,16 +86,31 @@ std::ostream& operator<<(std::ostream& os, const Moon& moon){
 
 // Destructor, copy constructor and assignment operator
 Moon::~Moon() {
-    std::cout << "Moon " << this->name << " destroyed!" << std::endl;
+    // std::cout << "Moon " << this->name << " destroyed!" << std::endl;
 }
 
-Moon::Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed)
+Moon::Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed, double planetX, double planetY, double planetOrbitR)
     : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed), rotationSpeed(0), rotationAngle(0) {
-    std::cout << "Moon constructor called!" << std::endl;
+    // Init the variables
+    if (radius < 0) {
+        throw std::invalid_argument("Radius cannot be negative");
+    }
+    if (mass < 0) {
+        throw std::invalid_argument("Mass cannot be negative");
+    }
+    if (orbitSpeed < 0) {
+        throw std::invalid_argument("Orbit speed cannot be negative");
+    }
+    if (planetOrbitR < 0) {
+        throw std::invalid_argument("planetOrbitR cannot be negative");
+    }
+
+    // The star is not part of a galaxy
+    position = randomPositionInCircle(planetX, planetY, planetOrbitR);
 }
 
 Moon::Moon(const Moon& moon) : CelestialObject(moon.name, 0, 0){
-    std::cout<<"Moon copy constructor called!"<<std::endl;
+    // std::cout<<"Moon copy constructor called!"<<std::endl;
     this->mass = moon.mass;
     this->radius = moon.radius;
     this->distanceFromPlanet = moon.distanceFromPlanet;
@@ -102,7 +123,7 @@ Moon::Moon(const Moon& moon) : CelestialObject(moon.name, 0, 0){
 
 // Add the equal operator
 Moon& Moon::operator=(const Moon& moon){
-    std::cout<<"Moon assignment operator called!"<<std::endl;
+    // std::cout<<"Moon assignment operator called!"<<std::endl;
     this->mass = moon.mass;
     this->radius = moon.radius;
     this->distanceFromPlanet = moon.distanceFromPlanet;

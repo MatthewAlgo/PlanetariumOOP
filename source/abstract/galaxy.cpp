@@ -91,8 +91,3 @@ void Galaxy::setPosition(const std::pair<double, double>& pos) {
 double Galaxy::getRadius() const {
     return radius;
 }
-
-
-// Draw function for the black hole
-void Galaxy::draw(sf::RenderWindow* window) {
-}

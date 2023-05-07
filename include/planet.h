@@ -39,7 +39,7 @@ public:
 
 //    std::vector<Moon>& getMoons();
     void setMoons(const std::vector<Moon>& moons);
-
+    void addMoon(const Moon& moon);
     // friend ostream for <<
     friend std::ostream& operator<<(std::ostream& os, const Planet& planet);
 

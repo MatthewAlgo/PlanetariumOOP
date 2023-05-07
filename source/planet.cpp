@@ -156,11 +156,11 @@ void Planet::draw(sf::RenderWindow* window)
     planet.setPosition(position.first, position.second);
     window->draw(planet);
 
-    // Draw the moons
-    for (auto& moon : this->moons)
-    {
-        moon.draw(window);
-    }
+}
+
+void Planet::addMoon(const Moon& moon)
+{
+    this->moons.push_back(moon);
 }
 
 // Getter for the moons

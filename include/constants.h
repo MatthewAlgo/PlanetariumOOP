@@ -15,6 +15,8 @@ class Constants
     static const int BLACKHOLERADIUS_MASSIVE;
     static const int RADIUS_STELLAR;
     static const int STAR_ORBIT_SIZE;
+    static const int PLANET_ORBIT_SIZE;
+    static const int MOONMASS_MASSIVE;
 
     static const int PLANETMASS_MASSIVE;
 

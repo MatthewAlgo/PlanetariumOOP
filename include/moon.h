@@ -18,7 +18,8 @@ public:
     void draw(sf::RenderWindow* window) override;
 
     // Constructor
-    Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed);
+    // Moon(moonName, Constants::MOONMASS_MASSIVE, 1, 1, 1, planetPosition.first, planetPosition.second, Constants::PLANET_ORBIT_SIZE)
+    Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed, double planetX, double planetY, double planetOrbitR);
 
     // Getters and setters for all the private variables
 //    double getMass();

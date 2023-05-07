@@ -4,6 +4,7 @@
 void BlackHole::draw(sf::RenderWindow* window) {
     // Draw the black hole
     std::cout << "Drawing a black hole" << std::endl;
+    std::cout<< window->getSize().x <<std::endl;
 }
 
 //[[maybe_unused]]
