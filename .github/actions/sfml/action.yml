@@ -1,0 +1,21 @@
+name: 'Install SFML'
+description: 'Installs SFML dependencies on Ubuntu'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends \
+          libegl1-mesa-dev \
+          libdrm-dev \
+          libgbm-dev \
+          libudev-dev \
+          libopenal-dev \
+          libflac-dev \
+          libvorbis-dev \
+          libgl1-mesa-dev \
+          libxrandr-dev \
+          libxcursor-dev \
+          libfreetype6-dev \
+          xorg
+      shell: bash
