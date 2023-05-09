@@ -40,6 +40,7 @@ int main() {
     init(&x); // Initialize the universe
 
     x.WinStartRendering();
-;
+
+    std::cin.get();
     return 0;
 }

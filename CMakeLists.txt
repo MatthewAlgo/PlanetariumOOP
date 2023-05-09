@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.24)
 # for now, the project name is used as the executable name
 project(oop)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -38,13 +38,15 @@ function(set_custom_stdlib_and_sanitizers target add_apple_asan)
             target_link_options(${target} PRIVATE "$<${debug_mode}:-fsanitize=address,undefined>")
         endif()
     elseif(UNIX)
-        if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+        if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
             if("${CMAKE_CXX_COMPILER_VERSION}" MATCHES "12.")
                 # check leaks on Linux since macOS does not support the leaks sanitizer yet
                 # leaks sanitizer is enabled by default on Linux, so we do not need to enable it explicitly
                 target_compile_options(${target} PRIVATE "$<${debug_mode}:-fsanitize=address,undefined>")
                 target_link_options(${target} PRIVATE "$<${debug_mode}:-fsanitize=address,undefined>")
-            elseif("${CMAKE_CXX_COMPILER_VERSION}" MATCHES "13.")
+            endif()
+        elseif("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+            if("${CMAKE_CXX_COMPILER_VERSION}" MATCHES "13.")
                 # use semi-colons instead of spaces to separate arguments
                 # it is recommended to quote generator expressions in order to avoid unintentional splitting
                 target_compile_options(${target} PRIVATE "$<${debug_mode}:-fsanitize=memory,undefined;-fsanitize-recover=memory,undefined;-fsanitize-memory-track-origins>")
@@ -58,47 +60,44 @@ endfunction()
 
 ###############################################################################
 
-# Will use SFML or other library in the future?
 # external dependencies with FetchContent
 include(FetchContent)
-#
-# NOTE: Also update env vars used for caching in .github/workflows/cmake.yml
+
+# NOTE: Also update SFML_VERSION env var in .github/workflows/cmake.yml:122
 FetchContent_Declare(
-       SFML_LIB
-       GIT_REPOSITORY https://github.com/SFML/SFML.git
-       GIT_TAG        2.5.1 # <which tag/branch @ <some_date>>
-    #    GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
+  SFML
+  GIT_REPOSITORY https://github.com/SFML/SFML.git
+  GIT_TAG        a21c3c101cd02e41b79ffc515f93c649e230e263 # 2.6.x as of 2023-05-03
+  # GIT_TAG        863fef024619da7f59b6404087b454337a172ac1 # 2.6.x as of 2022-08-30
+  # GIT_TAG        72d88033e2f24be0fb1e9df614a56f3d5274154c # master as of 2022-08-30
+  # GIT_TAG        f7c88ee7ef4e1c705531cd614efb7dcff1f873cb # last commit merged in master before API breakage (2022-04-21)
+  # GIT_TAG        origin/master
+  # GIT_TAG        origin/2.6.x
+  # GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
 )
 
-## Fetch content only for SFML graphics and window
-FetchContent_GetProperties(SFML_LIB)
-if(NOT SFML_LIB_POPULATED)
-    FetchContent_Populate(SFML_LIB)
-    set(SFML_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-    set(SFML_BUILD_DOC OFF CACHE BOOL "" FORCE)
-    set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
-    set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
-    set(SFML_INSTALL_PKGCONFIG_FILES OFF CACHE BOOL "" FORCE)
-    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-    add_subdirectory(${sfml_lib_SOURCE_DIR} ${sfml_lib_BINARY_DIR})
+
+FetchContent_MakeAvailable(SFML)
+
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
+else()
+    set_custom_stdlib_and_sanitizers(sfml-system false)
+    set_custom_stdlib_and_sanitizers(sfml-window false)
+    set_custom_stdlib_and_sanitizers(sfml-graphics false)
 endif()
-
-set(SFML_STATIC_LIBRARIES TRUE)
-set(SFML_DIR ${sfml_lib_BINARY_DIR}/lib/cmake/SFML)
-# find_package(SFML COMPONENTS graphics window REQUIRED)
-
-
-#
-FetchContent_MakeAvailable(SFML_LIB)
 
 ###############################################################################
 
 # external dependencies with find_package
 
-# find_package(Threads REQUIRED)
-# find_package(SFML COMPONENTS graphics window REQUIRED)
+find_package(Threads REQUIRED)
+if(APPLE)
+elseif(UNIX)
+    find_package(X11)
+endif()
 
 ###############################################################################
+
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp 
                                     ${CMAKE_CURRENT_SOURCE_DIR}/source/abstract/*.cpp
                                     ${CMAKE_CURRENT_SOURCE_DIR}/source/window/*.cpp
@@ -139,16 +138,21 @@ set_custom_stdlib_and_sanitizers(${PROJECT_NAME} true)
 
 ###############################################################################
 
+# use SYSTEM so clang-tidy does not report warnings from these directorie
 # Use SYSTEM so clang-tidy does not report warnings from these directories
 target_include_directories(
   ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
                          $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
 )
-
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
-#target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
-#target_link_directories(${PROJECT_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${SFML_SOURCE_DIR}/include)
+target_link_directories(${PROJECT_NAME} PRIVATE ${SFML_BINARY_DIR}/lib)
 target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window)
+
+if(APPLE)
+elseif(UNIX)
+    target_link_libraries(${PROJECT_NAME} X11)
+endif()
 
 ###############################################################################
 
