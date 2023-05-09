@@ -16,13 +16,10 @@ void init(MainWindowClass* window) {
     // Initialize the universe
     Universe universe(Constants::MEDIUM_NUMBER_OF_GALAXIES);
     Universe::numberOfUniverseObjects++;
-
     try{
-
         universe.createBigBang(window);
         std::cout<<universe<<std::endl;
         universe.checkTime();
-
     } catch (WindowNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
         exit(1);
@@ -36,6 +33,12 @@ int main() {
 
     // std::shared_ptr<MainWindowClass> myMainWindow = std::make_shared<MainWindowClass>("SpaceEngine", 1000, 500); // Initialize the window
 	auto& x = MainWindowClass::get_app("SpaceEngine", 1000, 500);
+    
+    if (x.getWindowHeight() < 0 || x.getWindowWidth() < 0) {
+        std::cout<<"Window size cannot be negative. Reverting to default values..."<<std::endl;
+        x.setWindowHeight(500); // Set default window height
+        x.setWindowWidth(1000); // Set default window width
+    }
 
     init(&x); // Initialize the universe
 

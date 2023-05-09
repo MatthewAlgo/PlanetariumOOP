@@ -29,5 +29,5 @@ public:
 
 class WindowNotFoundException : public PlanetariumException {
 public:
-    explicit WindowNotFoundException();
+    explicit WindowNotFoundException(const std::string& message);
 };

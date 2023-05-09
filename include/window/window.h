@@ -81,6 +81,10 @@ public:
     std::vector<CelestialObject*> &getObjectsToBeDrawn();
     void setObjectsToBeDrawn(std::vector<CelestialObject *> &objectsToBeDrawn);
     sf::RenderWindow *getWindow() const;
+    sf::Int32& getWindowWidth();
+    sf::Int32& getWindowHeight();
+    void setWindowWidth(const sf::Int32& W);
+    void setWindowHeight(const sf::Int32& H);
 };
 
 #endif

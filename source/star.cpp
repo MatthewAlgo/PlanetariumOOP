@@ -3,11 +3,20 @@
 #include "constants.h"
 #include "except/exceptions.h"
 
+[[maybe_unused]]
 void Star::draw(sf::RenderWindow* window) {
     // Draw a yellow small circle for the star at the position position
 
-    if (window == nullptr) {
-        throw WindowNotFoundException();
+    try
+    {
+        if (window == nullptr)
+        {
+            throw WindowNotFoundException("Window not found");
+        }
+    }
+    catch (WindowNotFoundException &e)
+    {
+        std::cout << e.what() << std::endl;
     }
 
     sf::CircleShape star;

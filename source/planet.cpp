@@ -1,5 +1,6 @@
 #include "planet.h"
 #include "structs/mt_randomengine.h"
+#include "except/exceptions.h"
 
 // Constructor
 Planet::Planet(const std::string& n, double m, double r, double d, double o, double StarX, double StarY, double StarR) : CelestialObject(n, 0, 0), mass(m), radius(r), distanceFromSun(d), orbitSpeed(o) {
@@ -148,8 +149,20 @@ Planet::~Planet()
 {
 }
 
+[[maybe_unused]]
 void Planet::draw(sf::RenderWindow* window)
 {
+    try
+    {
+        if (window == nullptr)
+        {
+            throw WindowNotFoundException("Window not found");
+        }
+    }
+    catch (WindowNotFoundException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     // Draw the planet
     sf::CircleShape planet(this->radius);
     planet.setFillColor(sf::Color::Red);
@@ -162,9 +175,3 @@ void Planet::addMoon(const Moon& moon)
 {
     this->moons.push_back(moon);
 }
-
-// Getter for the moons
-//std::vector<Moon>& Planet::getMoons()
-//{
-//    return this->moons;
-//}

@@ -66,7 +66,7 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 	Window->clear(sf::Color::Black);
 
 	// Draw objects here
-	for (int i = 0; i < objectsToBeDrawn.size(); ++i)
+	for (int i = 0; i < (int)objectsToBeDrawn.size(); ++i)
 	{
 		try{
 			if (objectsToBeDrawn[i] == nullptr)
@@ -142,4 +142,24 @@ std::vector<CelestialObject *> &MainWindowClass::getObjectsToBeDrawn()
 void MainWindowClass::setObjectsToBeDrawn(std::vector<CelestialObject *> &otd)
 {
 	objectsToBeDrawn = otd;
+}
+
+sf::Int32& MainWindowClass::getWindowWidth()
+{
+	return WWidth;
+}
+
+sf::Int32& MainWindowClass::getWindowHeight()
+{
+	return WHeight;
+}
+
+void MainWindowClass::setWindowWidth(const sf::Int32& width)
+{
+	WWidth = width;
+}
+
+void MainWindowClass::setWindowHeight(const sf::Int32& height)
+{
+	WHeight = height;
 }

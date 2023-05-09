@@ -4,8 +4,20 @@
 
 // Implement all the functions in the header file
 
-[[maybe_unused]]
-void Moon::draw(sf::RenderWindow* window) {
+[[maybe_unused]] void Moon::draw(sf::RenderWindow *window)
+{
+    try
+    {
+        if (window == nullptr)
+        {
+            throw WindowNotFoundException("Window not found");
+        }
+    }
+    catch (WindowNotFoundException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
     // Draw the moon
     sf::CircleShape moonDraw(this->radius);
     moonDraw.setFillColor(sf::Color::Blue);
@@ -14,94 +26,101 @@ void Moon::draw(sf::RenderWindow* window) {
 }
 
 //[[maybe_unused]]
-//double Moon::getMass() {
+// double Moon::getMass() {
 //    return this->mass;
 //}
 //[[maybe_unused]]
-//void Moon::setMass(double m) {
+// void Moon::setMass(double m) {
 //    mass = m;
 //}
 //[[maybe_unused]]
-//double Moon::getRadius() {
+// double Moon::getRadius() {
 //    return radius;
 //}
 //[[maybe_unused]]
-//void Moon::setRadius(double r) {
+// void Moon::setRadius(double r) {
 //    radius = r;
 //}
 //[[maybe_unused]]
-//double Moon::getDistanceFromPlanet() {
+// double Moon::getDistanceFromPlanet() {
 //    return distanceFromPlanet;
 //}
 //[[maybe_unused]]
-//void Moon::setDistanceFromPlanet(double dist) {
+// void Moon::setDistanceFromPlanet(double dist) {
 //    distanceFromPlanet = dist;
 //}
 //[[maybe_unused]]
-//double Moon::getOrbitSpeed() {
+// double Moon::getOrbitSpeed() {
 //    return orbitSpeed;
 //}
 //[[maybe_unused]]
-//void Moon::setOrbitSpeed(double os) {
+// void Moon::setOrbitSpeed(double os) {
 //    this->orbitSpeed = os;
 //}
 //[[maybe_unused]]
-//double Moon::getRotationSpeed() {
+// double Moon::getRotationSpeed() {
 //    return rotationSpeed;
 //}
 //[[maybe_unused]]
-//double Moon::getColor() {
+// double Moon::getColor() {
 //    return color;
 //}
 //[[maybe_unused]]
-//void Moon::setColor(double c) {
+// void Moon::setColor(double c) {
 //    color = c;
 //}
 //[[maybe_unused]]
-//double Moon::getTexture() {
+// double Moon::getTexture() {
 //    return texture;
 //}
 //[[maybe_unused]]
-//void Moon::setTexture(double text) {
+// void Moon::setTexture(double text) {
 //    texture = text;
 //}
 //[[maybe_unused]]
-//void Moon::setRotationSpeed(double rs) {
+// void Moon::setRotationSpeed(double rs) {
 //    this->rotationSpeed = rs;
 //}
 //[[maybe_unused]]
-//double Moon::getRotationAngle() {
+// double Moon::getRotationAngle() {
 //    return rotationAngle;
 //}
 //[[maybe_unused]]
-//void Moon::setRotationAngle(double rAng) {
+// void Moon::setRotationAngle(double rAng) {
 //    this->rotationAngle = rAng;
 //}
 
 // friend ostream for <<
-std::ostream& operator<<(std::ostream& os, const Moon& moon){
+std::ostream &operator<<(std::ostream &os, const Moon &moon)
+{
     os << "Moon: " << moon.name << ", Mass: " << moon.mass << ", Radius: " << moon.radius << ", Distance from planet: " << moon.distanceFromPlanet << ", Orbit speed: " << moon.orbitSpeed << ", Rotation speed: " << moon.rotationSpeed << ", Texture: " << moon.texture << ", Rotation angle: " << moon.rotationAngle;
     return os;
 }
 
 // Destructor, copy constructor and assignment operator
-Moon::~Moon() {
+Moon::~Moon()
+{
     // std::cout << "Moon " << this->name << " destroyed!" << std::endl;
 }
 
-Moon::Moon(const std::string& name, double mass, double radius, double distanceFromPlanet, double orbitSpeed, double planetX, double planetY, double planetOrbitR)
-    : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed), rotationSpeed(0), rotationAngle(0) {
+Moon::Moon(const std::string &name, double mass, double radius, double distanceFromPlanet, double orbitSpeed, double planetX, double planetY, double planetOrbitR)
+    : CelestialObject(name, 0, 0), mass(mass), radius(radius), distanceFromPlanet(distanceFromPlanet), orbitSpeed(orbitSpeed), rotationSpeed(0), rotationAngle(0)
+{
     // Init the variables
-    if (radius < 0) {
+    if (radius < 0)
+    {
         throw std::invalid_argument("Radius cannot be negative");
     }
-    if (mass < 0) {
+    if (mass < 0)
+    {
         throw std::invalid_argument("Mass cannot be negative");
     }
-    if (orbitSpeed < 0) {
+    if (orbitSpeed < 0)
+    {
         throw std::invalid_argument("Orbit speed cannot be negative");
     }
-    if (planetOrbitR < 0) {
+    if (planetOrbitR < 0)
+    {
         throw std::invalid_argument("planetOrbitR cannot be negative");
     }
 
@@ -109,7 +128,8 @@ Moon::Moon(const std::string& name, double mass, double radius, double distanceF
     position = randomPositionInCircle(planetX, planetY, planetOrbitR);
 }
 
-Moon::Moon(const Moon& moon) : CelestialObject(moon.name, 0, 0){
+Moon::Moon(const Moon &moon) : CelestialObject(moon.name, 0, 0)
+{
     // std::cout<<"Moon copy constructor called!"<<std::endl;
     this->mass = moon.mass;
     this->radius = moon.radius;
@@ -122,7 +142,8 @@ Moon::Moon(const Moon& moon) : CelestialObject(moon.name, 0, 0){
 }
 
 // Add the equal operator
-Moon& Moon::operator=(const Moon& moon){
+Moon &Moon::operator=(const Moon &moon)
+{
     // std::cout<<"Moon assignment operator called!"<<std::endl;
     this->mass = moon.mass;
     this->radius = moon.radius;
