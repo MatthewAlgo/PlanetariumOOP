@@ -17,7 +17,7 @@
 
 class MainWindowClass
 {
-protected:
+private:
     struct ImageToBeDrawn
     {
         sf::Sprite SPRITE;
@@ -28,6 +28,8 @@ protected:
     sf::Int32 WHeight;
     const std::string WindowTitle;
 
+
+    
     std::unique_ptr<ImageToBeDrawn> BackGround;
     sf::Font GlobalWindowFont;
     sf::Text GreetingText;
@@ -37,31 +39,38 @@ protected:
     std::vector<CelestialObject *> objectsToBeDrawn;
 
     // Variables related to the main window
-    sf::RenderWindow *WindowPointer;
-    sf::Thread *MainWindowThread;
-    sf::VideoMode *MainWindowVideo;
+    std::shared_ptr<sf::RenderWindow> WindowPointer;
+    std::shared_ptr<sf::Thread> MainWindowThread;
+    std::shared_ptr<sf::VideoMode> MainWindowVideo;
     // std::thread* STDMainWindowThread;
 
     // Variables related to the textures and design elements
-public:
+    // Private constructor for singleton pattern
     MainWindowClass(const std::string &TITLE, int W, int H) : WindowTitle(TITLE), MainWindowVideo(new sf::VideoMode(W, H)),
                                                               WWidth(static_cast<int>(W)), WHeight(static_cast<int>(H))
     {
         // Create window and set active
-        WindowPointer = new sf::RenderWindow(*MainWindowVideo, WindowTitle, sf::Style::Titlebar | sf::Style::Close); // Create the window
+        WindowPointer = std::make_unique<sf::RenderWindow>(*MainWindowVideo, WindowTitle, sf::Style::Titlebar | sf::Style::Close); // Create the window
         WindowPointer->setActive(false);
 
     };
 
     ~MainWindowClass()
     { // Auto deallocate smart pointers
-        delete WindowPointer;
-        delete MainWindowVideo;
 
         for (int i = 0; i < objectsToBeDrawn.size(); ++i)
         {
             delete objectsToBeDrawn[i];
         }
+    }
+public:
+    
+    MainWindowClass(const MainWindowClass&) = delete;
+    MainWindowClass& operator=(const MainWindowClass&) = delete;
+
+    static MainWindowClass& get_app(const std::string &TITLE, int W, int H) {
+        static MainWindowClass app(TITLE, W, H);
+        return app;
     }
 
     void WinStartRendering();
@@ -71,7 +80,7 @@ public:
 
     void setWindow(sf::RenderWindow *Window);
 
-    std::vector<CelestialObject *> &getObjectsToBeDrawn();
+    std::vector<CelestialObject*> &getObjectsToBeDrawn();
     void setObjectsToBeDrawn(std::vector<CelestialObject *> &objectsToBeDrawn);
     sf::RenderWindow *getWindow() const;
 };

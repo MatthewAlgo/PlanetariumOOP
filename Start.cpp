@@ -34,12 +34,12 @@ int main() {
 	    XInitThreads();
     #endif
 
-    MainWindowClass* myMainWindow = new MainWindowClass("SpaceEngine", 1000, 500); // Initialize the window
-	
-    init(myMainWindow); // Initialize the universe
+    // std::shared_ptr<MainWindowClass> myMainWindow = std::make_shared<MainWindowClass>("SpaceEngine", 1000, 500); // Initialize the window
+	auto& x = MainWindowClass::get_app("SpaceEngine", 1000, 500);
 
-    myMainWindow->WinStartRendering();
+    init(&x); // Initialize the universe
 
-    delete myMainWindow;
+    x.WinStartRendering();
+;
     return 0;
 }

@@ -9,13 +9,13 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 	ITEM_HOLDER.getA()->setVerticalSyncEnabled(true);
 	ITEM_HOLDER.getA()->setFramerateLimit(60);
 
-	std::unique_ptr<DoubleItemHolder<sf::RenderWindow, MainWindowClass>> CurrentHolder = std::make_unique<DoubleItemHolder<sf::RenderWindow, MainWindowClass>>(WindowPointer, this);
+	std::unique_ptr<DoubleItemHolder<sf::RenderWindow, MainWindowClass>> CurrentHolder = std::make_unique<DoubleItemHolder<sf::RenderWindow, MainWindowClass>>(WindowPointer.get(), this);
 	// RenderTextures(*CurrentHolder.get());
 
 	// Display main Window
 	while (ITEM_HOLDER.getA()->isOpen())
 	{
-		sf::Event *Event = new sf::Event();
+		std::shared_ptr<sf::Event> Event = std::make_shared< sf::Event>();
 		while (ITEM_HOLDER.getA()->pollEvent(*Event))
 		{
 			if (Event->type == sf::Event::Closed)
@@ -55,7 +55,6 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 				break;
 			}
 		}
-		std::free(Event);
 		// Draws the window
 		MainWindowClass::DrawInsideMainWindow(ITEM_HOLDER.getA());
 	}
@@ -86,7 +85,7 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 
 void MainWindowClass::WinStartRendering()
 {
-	std::unique_ptr<TripleItemHolder<sf::RenderWindow, sf::Thread, MainWindowClass>> TripleHolder = std::make_unique<TripleItemHolder<sf::RenderWindow, sf::Thread, MainWindowClass>>(WindowPointer, MainWindowThread, this);
+	std::unique_ptr<TripleItemHolder<sf::RenderWindow, sf::Thread, MainWindowClass>> TripleHolder = std::make_unique<TripleItemHolder<sf::RenderWindow, sf::Thread, MainWindowClass>>(WindowPointer.get(), MainWindowThread.get(), this);
 
 	MainWindowThreadExecution(*TripleHolder);
 }
@@ -127,13 +126,13 @@ void MainWindowClass::RenderTextures(DoubleItemHolder<sf::RenderWindow, MainWind
 
 void MainWindowClass::setWindow(sf::RenderWindow *Window)
 {
-	WindowPointer = Window;
+	WindowPointer = std::shared_ptr<sf::RenderWindow>(Window);
 }
 
 // Get window pointer with throw
 sf::RenderWindow *MainWindowClass::getWindow() const
 {
-	return WindowPointer;
+	return WindowPointer.get();
 }
 
 std::vector<CelestialObject *> &MainWindowClass::getObjectsToBeDrawn()
