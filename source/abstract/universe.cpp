@@ -79,7 +79,7 @@ void Universe::createBigBang(MainWindowClass* window) {
     // Create the big bang - init the stars, galaxies, black holes, etc.
     // The problem is not from here
     if (window->getWindow() == nullptr) {
-        throw WindowNotFoundException();
+        throw WindowNotFoundException("Window not found");
     }
 
     for (int i = 0; i < numberOfGalaxies; i++) {

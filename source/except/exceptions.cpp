@@ -17,5 +17,5 @@ PlanetNotFoundException::PlanetNotFoundException(const std::string &planetName)
 StarNotFoundException::StarNotFoundException(const std::string &starName)
     : PlanetariumException("Star not found: " + starName) {}
 
-WindowNotFoundException::WindowNotFoundException()
-    : PlanetariumException("Window not found") {}
+WindowNotFoundException::WindowNotFoundException(const std::string &message)
+    : PlanetariumException(message) {}

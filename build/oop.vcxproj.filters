@@ -1,96 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\Start.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\Start.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\abstract\galaxy.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\galaxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\abstract\starCluster.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\starCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\abstract\universe.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\blackHole.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\blackHole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\celestialObject.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\celestialObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\constants.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\constants.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\except\exceptions.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\except\exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\moon.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\planet.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\star.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\star.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\structs\mt_randomengine.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\structs\mt_randomengine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\oop-template-sfml\source\window\window.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\window\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\abstract\galaxy.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\galaxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\abstract\starCluster.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\starCluster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\abstract\universe.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\blackHole.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\blackHole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\celestialObject.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\celestialObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\constants.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\except\exceptions.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\except\exceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\moon.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\planet.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\star.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\star.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\structs\holder.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\holder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\structs\mt_randomengine.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\mt_randomengine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\oop-template-sfml\include\window\window.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\window\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Matthew\Projects\oop-template-sfml\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Matthew\Projects\PlanetariumOOP\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{4E31F588-3527-3D64-B0B9-64EF18533E6F}</UniqueIdentifier>
+      <UniqueIdentifier>{2A5B779B-EE12-3F9B-8486-D9F960CCED55}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{48EAD131-0508-363B-AB74-B8D5066750CE}</UniqueIdentifier>
+      <UniqueIdentifier>{8069BDDE-2E6C-383A-AD2C-2C3C2BE5F8DC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
