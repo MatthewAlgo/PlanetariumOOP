@@ -1,21 +1,21 @@
-name: 'Install SFML'
-description: 'Installs SFML dependencies on Ubuntu'
+name: 'Install common Linux dependencies'
+description: 'Common logic for Linux dependencies installation'
 runs:
   using: "composite"
   steps:
     - run: |
         sudo apt-get update
         sudo apt-get install --no-install-recommends \
-          libegl1-mesa-dev \
-          libdrm-dev \
-          libgbm-dev \
+          libxrandr-dev \
+          libxcursor-dev \
           libudev-dev \
           libopenal-dev \
           libflac-dev \
           libvorbis-dev \
           libgl1-mesa-dev \
-          libxrandr-dev \
-          libxcursor-dev \
+          libegl1-mesa-dev \
+          libdrm-dev \
+          libgbm-dev \
           libfreetype6-dev \
           xorg
       shell: bash
