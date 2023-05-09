@@ -98,6 +98,7 @@ endif()
 
 ###############################################################################
 
+# NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp 
                                     ${CMAKE_CURRENT_SOURCE_DIR}/source/abstract/*.cpp
                                     ${CMAKE_CURRENT_SOURCE_DIR}/source/window/*.cpp
@@ -138,16 +139,18 @@ set_custom_stdlib_and_sanitizers(${PROJECT_NAME} true)
 
 ###############################################################################
 
-# use SYSTEM so clang-tidy does not report warnings from these directorie
-# Use SYSTEM so clang-tidy does not report warnings from these directories
+# use SYSTEM so clang-tidy does not report warnings from these directories
 target_include_directories(
   ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
                          $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
+				 ${SFML_SOURCE_DIR}/include
 )
+
+
 #target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${SFML_SOURCE_DIR}/include)
+#target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${SFML_SOURCE_DIR}/include)
 target_link_directories(${PROJECT_NAME} PRIVATE ${SFML_BINARY_DIR}/lib)
-target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window)
+target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window sfml-system Threads::Threads)
 
 if(APPLE)
 elseif(UNIX)
