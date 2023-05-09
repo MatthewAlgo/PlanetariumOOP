@@ -35,10 +35,6 @@ int main() {
     // std::shared_ptr<MainWindowClass> myMainWindow = std::make_shared<MainWindowClass>("SpaceEngine", 1000, 500); // Initialize the window
 	auto& x = MainWindowClass::get_app("SpaceEngine", 1000, 500);
 
-    std::cout<<"Testing random generator functions..." << std::endl;
-    std::cout<<"Random position in circle: "<<RandomEngine::randomPositionInCircle(0, 0, 10).first<<std::endl;
-    std::cout<<"Random position in rectangle: "<<RandomEngine::randomPositionInRect(0, 0, 10, 10).first<<std::endl;
-    
     if (x.getWindowHeight() < 0 || x.getWindowWidth() < 0) {
         std::cout<<"Window size cannot be negative. Reverting to default values..."<<std::endl;
         x.setWindowHeight(500); // Set default window height
