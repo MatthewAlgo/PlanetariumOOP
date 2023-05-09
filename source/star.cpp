@@ -17,6 +17,7 @@ void Star::draw(sf::RenderWindow* window) {
     catch (WindowNotFoundException &e)
     {
         std::cout << e.what() << std::endl;
+        exit(1);
     }
 
     sf::CircleShape star;
@@ -100,11 +101,11 @@ Star::Star(const std::string& n, double m, double r, double o, double d, double 
 
     // The star is not part of a galaxy
     if (distanceFromCenterOfGalaxy == NOT_PART_OF_A_GALAXY) {
-        position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
+        position = RandomEngine::randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
     } else if (distanceFromCenterOfGalaxy == PART_OF_A_GALAXY) {
         // Suppose the center of galaxy is at (Xgal, Ygal) and the radius of the galaxy is Rgal. The star should be in the circle of radius Rgal
         // The star should be at a random distance from the center of the galaxy in the circle
-        position = randomPositionInCircle(gal_X, gal_Y, gal_R);
+        position = RandomEngine::randomPositionInCircle(gal_X, gal_Y, gal_R);
     }
 
 }

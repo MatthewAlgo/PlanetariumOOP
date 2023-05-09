@@ -1,7 +1,7 @@
 #include "structs/mt_randomengine.h"
 
 // Random position delimited by the circle with center Cx Cy and radius R
-std::pair<double, double> randomPositionInCircle(const double Cx, const double Cy, const double R) {
+std::pair<double, double> RandomEngine::randomPositionInCircle(const double Cx, const double Cy, const double R) {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0.0, 1.0);
@@ -16,7 +16,7 @@ std::pair<double, double> randomPositionInCircle(const double Cx, const double C
 }
 
 // random position delimited by the square with upper left Px Py and lower right Qx Qy
-std::pair<double, double> randomPositionInRect(const double Px, const double Py, const double Qx, const double Qy){
+std::pair<double, double> RandomEngine::randomPositionInRect(const double Px, const double Py, const double Qx, const double Qy){
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> disX(Px, Qx);

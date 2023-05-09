@@ -2,11 +2,6 @@
 
 PlanetariumException::PlanetariumException(const std::string &message) : message_(message) {}
 
-const char *PlanetariumException::what() const noexcept
-{
-    return message_.c_str();
-}
-
 GalaxyNotFoundException::GalaxyNotFoundException(const std::string &galaxyName)
     : PlanetariumException("Galaxy not found: " + galaxyName) {
     }

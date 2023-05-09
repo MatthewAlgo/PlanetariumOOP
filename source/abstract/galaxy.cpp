@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, const Galaxy& galaxy){
 
 Galaxy::Galaxy(const std::string& n, double dist, double rad) : name(n), distanceFromCenterOfUniverse(dist),rotationSpeed(0), radius(rad), luminosity(0), blackHole(BlackHole(Constants::BLACKHOLEMASS_SUPERMASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLERADIUS_MASSIVE, Constants::BLACKHOLEMASS_MASSIVE)) {
     // Create a galaxy with a central black hole
-    position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
+    position = RandomEngine::randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
 }
 
 // Getter and setter for the rotation speed and luminosity

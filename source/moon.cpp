@@ -125,7 +125,7 @@ Moon::Moon(const std::string &name, double mass, double radius, double distanceF
     }
 
     // The star is not part of a galaxy
-    position = randomPositionInCircle(planetX, planetY, planetOrbitR);
+    position = RandomEngine::randomPositionInCircle(planetX, planetY, planetOrbitR);
 }
 
 Moon::Moon(const Moon &moon) : CelestialObject(moon.name, 0, 0)

@@ -19,7 +19,7 @@ Planet::Planet(const std::string& n, double m, double r, double d, double o, dou
     }
 
     // The star is not part of a galaxy
-    position = randomPositionInCircle(StarX, StarY, StarR);
+    position = RandomEngine::randomPositionInCircle(StarX, StarY, StarR);
 }
 
 // Getters and setters for all the private variables

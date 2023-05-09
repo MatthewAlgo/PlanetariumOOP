@@ -21,7 +21,6 @@ void init(MainWindowClass* window) {
         std::cout<<universe<<std::endl;
         universe.checkTime();
     } catch (WindowNotFoundException& e) {
-        std::cout<<e.what()<<std::endl;
         exit(1);
     }
 }

@@ -31,7 +31,7 @@
 
 CelestialObject::CelestialObject(const std::string& n, double c, double t) : name(n), color(c), texture(t) {
     // std::cout<<"Default constructor for CelestialObject\n"<<std::endl;
-    position = randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
+    position = RandomEngine::randomPositionInRect(0, 0, Constants::WindowWidth, Constants::WindowHeight);
 }
 
 CelestialObject::~CelestialObject() {
