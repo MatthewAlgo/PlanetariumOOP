@@ -14,7 +14,7 @@ std::pair<double, double> randomPositionInCircle(const double Cx, const double C
     std::uniform_real_distribution<> dis(0.0, 1.0);
 
     double r = R * std::sqrt(dis(gen));
-    double theta = 2.0 * M_PI * dis(gen);
+    double theta = 2.0 * P_PI * dis(gen);
 
     double x = Cx + r * std::cos(theta);
     double y = Cy + r * std::sin(theta);

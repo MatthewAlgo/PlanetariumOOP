@@ -24,11 +24,7 @@ private:
         sf::Texture TEXTURE;
     };
 
-    sf::Int32 WWidth;
-    sf::Int32 WHeight;
-    const std::string WindowTitle;
-
-
+    std::string WindowTitle;
     
     std::unique_ptr<ImageToBeDrawn> BackGround;
     sf::Font GlobalWindowFont;
@@ -42,6 +38,8 @@ private:
     std::shared_ptr<sf::RenderWindow> WindowPointer;
     std::shared_ptr<sf::Thread> MainWindowThread;
     std::shared_ptr<sf::VideoMode> MainWindowVideo;
+    sf::Int32 WWidth;
+    sf::Int32 WHeight;
     // std::thread* STDMainWindowThread;
 
     // Variables related to the textures and design elements
@@ -58,7 +56,7 @@ private:
     ~MainWindowClass()
     { // Auto deallocate smart pointers
 
-        for (int i = 0; i < objectsToBeDrawn.size(); ++i)
+        for (int i = 0; i < (int)objectsToBeDrawn.size(); ++i)
         {
             delete objectsToBeDrawn[i];
         }

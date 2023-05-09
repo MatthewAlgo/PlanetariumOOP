@@ -8,7 +8,8 @@ const char *PlanetariumException::what() const noexcept
 }
 
 GalaxyNotFoundException::GalaxyNotFoundException(const std::string &galaxyName)
-    : PlanetariumException("Galaxy not found: " + galaxyName) {}
+    : PlanetariumException("Galaxy not found: " + galaxyName) {
+    }
 
 PlanetNotFoundException::PlanetNotFoundException(const std::string &planetName)
     : PlanetariumException("Planet not found: " + planetName) {}
