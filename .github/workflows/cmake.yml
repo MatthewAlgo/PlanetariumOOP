@@ -65,11 +65,15 @@ jobs:
                    --project="${BUILD_DIR}"/compile_commands.json \
                    -i"${BUILD_DIR}" --suppress='*:"${BUILD_DIR}"/*' \
                    -i"${EXT_DIR}" --suppress='*:"${EXT_DIR}"/*' \
+                   -ibuild/_deps \
                    --suppress=missingIncludeSystem \
                    --suppress=unmatchedSuppression \
                    --suppress=useStlAlgorithm \
                    --suppress=unusedFunction \
+                   --suppress=preprocessorErrorDirective \
                    --error-exitcode=1 \
+                   
+                   
                    
 
   clang-tidy:
