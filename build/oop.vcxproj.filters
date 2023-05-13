@@ -13,6 +13,9 @@
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe_factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\blackHole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +52,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe_factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\blackHole.h">

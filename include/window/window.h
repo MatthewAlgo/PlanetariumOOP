@@ -13,8 +13,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 
-#define U_P std::unique_ptr
-
 class MainWindowClass
 {
 private:

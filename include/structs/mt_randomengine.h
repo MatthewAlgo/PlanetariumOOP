@@ -1,8 +1,7 @@
 #pragma once
 #include <random>
 #include <cmath>
-
-#define P_PI 3.14159265358979323846
+#include "constants.h"
 
 class RandomEngine {
     public:

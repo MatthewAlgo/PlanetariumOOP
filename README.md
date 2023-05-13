@@ -1,4 +1,12 @@
-# OOP Template
+# Planetarium - The cosmos generator
+
+## Project description
+
+Planetarium is an open-source project built using SFML, which generates a 2D universe consisting of stars, planets, and moons. The project is designed to provide an interactive and educational experience for users to explore and learn about the universe.
+
+The application generates a randomly generated universe with stars, and each star is accompanied by planets and moons.
+
+Planetarium is built using SFML, a popular open-source multimedia library for creating 2D games and applications. The project uses the MT randomizer to generate the universe.
 
 ### Tema 0
 
@@ -46,7 +54,7 @@
 ## Tema 3
 
 #### Cerințe
-- [ ] 2 șabloane de proiectare (design patterns)
+- [X] 2 șabloane de proiectare (design patterns)
 - [ ] o funcție șablon (template) cu sens; minim 2 instanțieri
 - [ ] o clasă șablon cu sens; minim 2 instanțieri
 <!-- - [ ] o specializare pe funcție/clasă șablon -->

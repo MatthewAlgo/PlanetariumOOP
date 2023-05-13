@@ -9,8 +9,6 @@
 #include <vector>
 #include <string>
 
-#define NOT_PART_OF_A_GALAXY -1
-#define PART_OF_A_GALAXY 1
 
 class Star : public CelestialObject
 {

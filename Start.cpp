@@ -1,5 +1,6 @@
 #include <iostream>
 #include "abstract/universe.h"
+#include "abstract/universe_factory.h"
 #include "star.h"
 #include "blackHole.h"
 #include "abstract/galaxy.h"
@@ -15,16 +16,25 @@
 
 void init(MainWindowClass* window) {
     // Initialize the universe
-    Universe universe(Constants::MEDIUM_NUMBER_OF_GALAXIES);
-    Universe::numberOfUniverseObjects++;
-    try{
+    Universe universe(UniverseFactory::createLargeUniverse());
+
+    try {
         universe.createBigBang(window);
         std::cout<<universe<<std::endl;
         universe.checkTime();
     } catch (WindowNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
         exit(1);
-    }
+    } catch (GalaxyNotFoundException& e) {
+        std::cout<<e.what()<<std::endl;
+        exit(1);
+    } catch (PlanetNotFoundException& e) {
+        std::cout<<e.what()<<std::endl;
+        exit(1);
+    } catch (StarNotFoundException& e) {
+        std::cout<<e.what()<<std::endl;
+        exit(1);
+    } 
 }
 
 int main() {
@@ -43,7 +53,13 @@ int main() {
 
     init(&x); // Initialize the universe
 
-    x.WinStartRendering();
+    try {
+        x.WinStartRendering();
+    }
+    catch (PlanetariumException& e) {
+        std::cout<<e.what()<<std::endl;
+        exit(1);
+    }
 
     std::cin.get();
     return 0;

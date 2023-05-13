@@ -5,10 +5,12 @@
 class PlanetariumException : public std::exception {
 public:
     explicit PlanetariumException(const std::string& message);
+    const char* what() const noexcept;
 
 protected:
     std::string message_;
 };
+
 
 class GalaxyNotFoundException : public PlanetariumException {
 public:

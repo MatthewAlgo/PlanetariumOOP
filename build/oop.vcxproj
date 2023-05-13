@@ -337,6 +337,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\galaxy.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\starCluster.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe.cpp" />
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe_factory.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\blackHole.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\celestialObject.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\constants.cpp" />
@@ -349,6 +350,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\galaxy.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\starCluster.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe.h" />
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe_factory.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\blackHole.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\celestialObject.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\constants.h" />
