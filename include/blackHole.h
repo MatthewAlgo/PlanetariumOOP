@@ -3,7 +3,7 @@
 
 #include "celestialObject.h"
 
-class BlackHole : protected CelestialObject
+class BlackHole : public CelestialObject
 {
 protected:
     double activityLevel;

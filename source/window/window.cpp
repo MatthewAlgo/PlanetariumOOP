@@ -1,5 +1,8 @@
 #include "window/window.h"
 #include "except/exceptions.h"
+#include "star.h"
+#include "planet.h"
+#include "moon.h"
 
 void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindow, sf::Thread, MainWindowClass> &ITEM_HOLDER)
 {
@@ -15,15 +18,15 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 	// Display main Window
 	while (ITEM_HOLDER.getA()->isOpen())
 	{
-		std::shared_ptr<sf::Event> Event = std::make_shared< sf::Event>();
-		while (ITEM_HOLDER.getA()->pollEvent(*Event))
+		sf::Event Event;
+		while (ITEM_HOLDER.getA()->pollEvent(Event))
 		{
-			if (Event->type == sf::Event::Closed)
+			if (Event.type == sf::Event::Closed)
 			{
 				ITEM_HOLDER.getA()->close();
 				break;
 			}
-			else if (Event->type == sf::Event::MouseButtonReleased)
+			else if (Event.type == sf::Event::MouseButtonReleased)
 			{
 				std::cout << "Mouse button clicked\n";
 				std::unique_ptr<sf::Mouse> MyMouse = std::make_unique<sf::Mouse>();
@@ -40,18 +43,18 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 					std::cout << "Second Button Pressed\n";
 				}
 			}
-			else if (Event->type == sf::Event::KeyPressed)
+			else if (Event.type == sf::Event::KeyPressed)
 			{
-				if (Event->key.code == sf::Keyboard::Escape)
+				if (Event.key.code == sf::Keyboard::Escape)
 				{ // Exits on ESC pressed
 					ITEM_HOLDER.getA()->close();
 					break;
 				}
 			}
-			else if (Event->type == sf::Event::TextEntered)
+			else if (Event.type == sf::Event::TextEntered)
 			{
-				if (Event->text.unicode < 128)
-					std::cout << "ASCII character typed: " << static_cast<char>(Event->text.unicode) << std::endl;
+				if (Event.text.unicode < 128)
+					std::cout << "ASCII character typed: " << static_cast<char>(Event.text.unicode) << std::endl;
 				break;
 			}
 		}
@@ -68,15 +71,28 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 	// Draw objects here
 	for (int i = 0; i < (int)objectsToBeDrawn.size(); ++i)
 	{
-		try{
-			if (objectsToBeDrawn[i] == nullptr)
-				throw std::runtime_error("Object to be drawn is null");
-			if (Window == nullptr)
-				throw std::runtime_error("Window is null");
-				
-			objectsToBeDrawn[i]->draw(Window);
-		}catch (const std::exception& e){
-			std::cout << e.what() << "\n";
+
+		if (objectsToBeDrawn[i] == nullptr)
+			throw PlanetarimRuntimeException("Object to be drawn is null");
+		if (Window == nullptr)
+			throw PlanetarimRuntimeException("Window is null");
+
+		if (Star* star = dynamic_cast<Star*>(objectsToBeDrawn[i])) {
+        	// object is a Star
+			std::cout<<"Star drawn\n";
+        	star->draw(Window);
+    	}
+    	else if (Planet* planet = dynamic_cast<Planet*>(objectsToBeDrawn[i])) {
+        	// object is a Planet
+			std::cout<<"Planet drawn\n";
+        	planet->draw(Window);
+    	}
+    	else if (Moon* moon = dynamic_cast<Moon*>(objectsToBeDrawn[i])) {
+			// object is a Moon
+			std::cout<<"Moon drawn\n";
+			moon->draw(Window);
+		} else {
+			throw PlanetarimRuntimeException("Object to be drawn is not a Star, Planet or Moon");
 		}
 	}
 
@@ -139,27 +155,33 @@ std::vector<CelestialObject *> &MainWindowClass::getObjectsToBeDrawn()
 {
 	return objectsToBeDrawn;
 }
+
+void MainWindowClass::addObjectToBeDrawn(CelestialObject *otd)
+{
+	objectsToBeDrawn.push_back(otd);
+}
+
 void MainWindowClass::setObjectsToBeDrawn(std::vector<CelestialObject *> &otd)
 {
 	objectsToBeDrawn = otd;
 }
 
-sf::Int32& MainWindowClass::getWindowWidth()
+sf::Int32 &MainWindowClass::getWindowWidth()
 {
 	return WWidth;
 }
 
-sf::Int32& MainWindowClass::getWindowHeight()
+sf::Int32 &MainWindowClass::getWindowHeight()
 {
 	return WHeight;
 }
 
-void MainWindowClass::setWindowWidth(const sf::Int32& width)
+void MainWindowClass::setWindowWidth(const sf::Int32 &width)
 {
 	WWidth = width;
 }
 
-void MainWindowClass::setWindowHeight(const sf::Int32& height)
+void MainWindowClass::setWindowHeight(const sf::Int32 &height)
 {
 	WHeight = height;
 }

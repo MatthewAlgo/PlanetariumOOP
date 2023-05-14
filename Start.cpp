@@ -24,16 +24,12 @@ void init(MainWindowClass* window) {
         universe.checkTime();
     } catch (WindowNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
-        exit(1);
     } catch (GalaxyNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
-        exit(1);
     } catch (PlanetNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
-        exit(1);
     } catch (StarNotFoundException& e) {
         std::cout<<e.what()<<std::endl;
-        exit(1);
     } 
 }
 

@@ -31,3 +31,8 @@ class WindowNotFoundException : public PlanetariumException {
 public:
     explicit WindowNotFoundException(const std::string& message);
 };
+
+class PlanetarimRuntimeException : public PlanetariumException {
+public:
+    explicit PlanetarimRuntimeException(const std::string& message);
+};

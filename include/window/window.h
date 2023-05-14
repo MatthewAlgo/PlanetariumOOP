@@ -83,6 +83,7 @@ public:
     sf::Int32& getWindowHeight();
     void setWindowWidth(const sf::Int32& W);
     void setWindowHeight(const sf::Int32& H);
+    void addObjectToBeDrawn(CelestialObject *otd);
 };
 
 #endif

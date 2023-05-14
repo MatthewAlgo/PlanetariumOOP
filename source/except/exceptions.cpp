@@ -26,3 +26,8 @@ WindowNotFoundException::WindowNotFoundException(const std::string &message)
     : PlanetariumException(message) {
         message_ = message;
     }
+
+PlanetarimRuntimeException::PlanetarimRuntimeException(const std::string &message)
+    : PlanetariumException(message) {
+        message_ = "Runtime error with message:" + message;
+}
