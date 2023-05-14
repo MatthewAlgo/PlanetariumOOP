@@ -79,17 +79,14 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 
 		if (Star* star = dynamic_cast<Star*>(objectsToBeDrawn[i])) {
         	// object is a Star
-			std::cout<<"Star drawn\n";
         	star->draw(Window);
     	}
     	else if (Planet* planet = dynamic_cast<Planet*>(objectsToBeDrawn[i])) {
-        	// object is a Planet
-			std::cout<<"Planet drawn\n";
+        	// object is a Planet;
         	planet->draw(Window);
     	}
     	else if (Moon* moon = dynamic_cast<Moon*>(objectsToBeDrawn[i])) {
 			// object is a Moon
-			std::cout<<"Moon drawn\n";
 			moon->draw(Window);
 		} else {
 			throw PlanetarimRuntimeException("Object to be drawn is not a Star, Planet or Moon");

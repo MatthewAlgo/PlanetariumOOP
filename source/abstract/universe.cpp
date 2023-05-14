@@ -135,34 +135,24 @@ void Universe::createBigBang(MainWindowClass* window) {
         for (int j = 0; j < Constants::NUMBER_OF_STARS_PER_GALAXY; j++) {
             std::string starName = "Star " + std::to_string(j);
 
-            // Create the star object
-            Star star(starName, Constants::STARMASS_MASSIVE, 2, j, 1, galaxy.getPosition().first, galaxy.getPosition().second, galaxy.getRadius());
-
             // Add the star object to the window and to the galaxy
-            window->addObjectToBeDrawn(new Star(star));
-            galaxy.addStar(star);
+            window->addObjectToBeDrawn(new Star(starName, Constants::STARMASS_MASSIVE, 2, j, 1, galaxy.getPosition().first, galaxy.getPosition().second, galaxy.getRadius()));
+            CelestialObject* star = window->getObjectsToBeDrawn().back();
 
             // Add planets to the star
             for(int k = 0; k < Constants::PLANETS_PER_STAR; ++k){
                 std::string planetName = "Planet " + std::to_string(k);
 
-                // Create the planet object
-                Planet planet(planetName, Constants::PLANETMASS_MASSIVE, 1, 1, 1, star.getPosition().first, star.getPosition().second, Constants::STAR_ORBIT_SIZE);
-
                 // Add the planet object to the window and to the star
-                window->addObjectToBeDrawn(new Planet(planet));
-                star.addPlanet(planet);
-
+                window->addObjectToBeDrawn(new Planet(planetName, Constants::PLANETMASS_MASSIVE, 1, 1, 1, star->getPosition().first, star->getPosition().second, Constants::STAR_ORBIT_SIZE));
+                CelestialObject* planet = window->getObjectsToBeDrawn().back();
+                
                 // Add moons to the planet
                 for (int l = 0; l < Constants::MOONS_PER_PLANET; ++l){
                     std::string moonName = "Moon " + std::to_string(l);
 
-                    // Create the moon object
-                    Moon moon(moonName, Constants::MOONMASS_MASSIVE, 1, 1, 1, planet.getPosition().first, planet.getPosition().second, Constants::PLANET_ORBIT_SIZE);
-
                     // Add the moon object to the window and to the planet
-                    window->addObjectToBeDrawn(new Moon(moon));
-                    planet.addMoon(moon);
+                    window->addObjectToBeDrawn(new Moon(moonName, Constants::MOONMASS_MASSIVE, 1, 1, 1, planet->getPosition().first, planet->getPosition().second, Constants::PLANET_ORBIT_SIZE));
                 }
             }
         }

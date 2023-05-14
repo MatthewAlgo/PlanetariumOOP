@@ -30,6 +30,10 @@ protected:
     virtual void draw(sf::RenderWindow* window) = 0;
     CelestialObject(const std::string& name, double color, double texture);
     virtual ~CelestialObject();
+    // Operator overloading =
+    CelestialObject& operator=(const CelestialObject& celestialObject);
+    // Operator overloading copy constructor
+    CelestialObject(const CelestialObject& celestialObject);
 
     std::pair<double, double> getPosition() const;
     void setPosition(const std::pair<double, double>& position);

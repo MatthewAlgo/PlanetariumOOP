@@ -44,3 +44,21 @@ std::pair<double, double> CelestialObject::getPosition() const {
 void CelestialObject::setPosition(const std::pair<double, double>& p) {
     position = p;
 }
+
+CelestialObject& CelestialObject::operator=(const CelestialObject& celestialObject) {
+    if (this == &celestialObject) {
+        return *this;
+    }
+    name = celestialObject.name;
+    color = celestialObject.color;
+    texture = celestialObject.texture;
+    position = celestialObject.position;
+    return *this;
+}
+
+CelestialObject::CelestialObject(const CelestialObject& celestialObject) {
+    name = celestialObject.name;
+    color = celestialObject.color;
+    texture = celestialObject.texture;
+    position = celestialObject.position;
+}

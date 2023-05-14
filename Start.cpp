@@ -38,7 +38,6 @@ int main() {
 	    XInitThreads();
     #endif
 
-    // std::shared_ptr<MainWindowClass> myMainWindow = std::make_shared<MainWindowClass>("SpaceEngine", 1000, 500); // Initialize the window
 	auto& x = MainWindowClass::get_app("SpaceEngine", 1000, 500);
 
     if (x.getWindowHeight() < 0 || x.getWindowWidth() < 0) {

@@ -17,7 +17,6 @@ void Star::draw(sf::RenderWindow* window) {
     catch (WindowNotFoundException &e)
     {
         std::cout << e.what() << std::endl;
-        exit(1);
     }
 
     sf::CircleShape star;
@@ -77,6 +76,7 @@ Star &Star::operator=(const Star &star) {
     orbitSpeed = star.orbitSpeed;
     distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
     planets = star.planets;
+    position = star.position;
     return *this;
 }
 
