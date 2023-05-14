@@ -1,102 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\Start.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\Start.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\galaxy.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\galaxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\starCluster.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\starCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\universe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\abstract\universe_factory.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\universe_factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\blackHole.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\blackHole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\celestialObject.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\celestialObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\constants.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\constants.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\except\exceptions.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\except\exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moon.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\hypergiantstar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planet.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\moon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\star.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\planet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\structs\mt_randomengine.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\star.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\window\window.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\structs\mt_randomengine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\window\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\galaxy.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\galaxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\starCluster.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\starCluster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\universe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\universe_factory.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\universe_factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\blackHole.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\blackHole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\celestialObject.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\celestialObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\constants.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\except\exceptions.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\except\exceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moon.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\hypergiantstar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planet.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\moon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\star.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\holder.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\star.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\mt_randomengine.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\structs\holder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\window\window.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\structs\mt_randomengine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\window\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Matthew\Projects\PlanetariumOOP\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Matthew\Projects\PLNew\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{2A5B779B-EE12-3F9B-8486-D9F960CCED55}</UniqueIdentifier>
+      <UniqueIdentifier>{D40FE3C1-449C-3636-AFC5-310A0D5E3A15}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{8069BDDE-2E6C-383A-AD2C-2C3C2BE5F8DC}</UniqueIdentifier>
+      <UniqueIdentifier>{B1183941-DE3B-3735-BAB9-C8F46C66265D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -5,7 +5,6 @@
 #include "blackHole.h"
 #include "abstract/galaxy.h"
 #include "constants.h"
-
 #include "window/window.h"
 #include "except/exceptions.h"
 #include "structs/mt_randomengine.h"
