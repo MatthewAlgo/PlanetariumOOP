@@ -36,3 +36,8 @@ class PlanetarimRuntimeException : public PlanetariumException {
 public:
     explicit PlanetarimRuntimeException(const std::string& message);
 };
+
+class PlanetariumArgumentException : public PlanetariumException {
+public:
+    explicit PlanetariumArgumentException(const std::string& message);
+};

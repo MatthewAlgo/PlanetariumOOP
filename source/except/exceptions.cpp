@@ -31,3 +31,9 @@ PlanetarimRuntimeException::PlanetarimRuntimeException(const std::string &messag
     : PlanetariumException(message) {
         message_ = "Runtime error with message:" + message;
 }
+
+
+PlanetariumArgumentException::PlanetariumArgumentException(const std::string &message)
+    : PlanetariumException(message) {
+        message_ = "Invalid argument exception: " + message;
+}

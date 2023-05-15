@@ -1,108 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\Start.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\Start.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\galaxy.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\abstract\galaxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\starCluster.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\abstract\starCluster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\universe.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\abstract\universe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\abstract\universe_factory.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\abstract\universe_factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\blackHole.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\blackHole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\celestialObject.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\celestialObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\constants.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\constants.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\except\exceptions.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\except\exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\hypergiantstar.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\hypergiantstar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\moon.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\moon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\planet.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\moonfactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\star.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\planet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\structs\mt_randomengine.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\planetfactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Matthew\Projects\PLNew\source\window\window.cpp">
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\star.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\starfactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\structs\mt_randomengine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PLNEWS\source\window\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\galaxy.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\abstract\galaxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\starCluster.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\abstract\starCluster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\universe.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\abstract\universe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\abstract\universe_factory.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\abstract\universe_factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\blackHole.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\blackHole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\celestialObject.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\celestialObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\constants.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\except\exceptions.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\except\exceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\hypergiantstar.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\hypergiantstar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\moon.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\moon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\planet.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\moonfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\star.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\structs\holder.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\planetfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\structs\mt_randomengine.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\star.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Matthew\Projects\PLNew\include\window\window.h">
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\starfactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\structs\holder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\structs\mt_randomengine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PLNEWS\include\window\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Matthew\Projects\PLNew\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Matthew\Projects\PLNEWS\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{D40FE3C1-449C-3636-AFC5-310A0D5E3A15}</UniqueIdentifier>
+      <UniqueIdentifier>{D1ACD7A4-3903-3D26-AD49-A7C99CB8F1E4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{B1183941-DE3B-3735-BAB9-C8F46C66265D}</UniqueIdentifier>
+      <UniqueIdentifier>{1E19D2E6-B2B0-31E7-956E-5C2D6A2D26F1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
