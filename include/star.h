@@ -42,7 +42,8 @@ public:
 
     // Copy constructor, assignment operator, destructor
     Star(const Star &star);
-    Star &operator=(const Star &star);
+    Star& operator=(Star other);
+    void swap(Star& first, Star& second);
     ~Star();
 };
 

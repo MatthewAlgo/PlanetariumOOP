@@ -39,35 +39,6 @@ std::ostream &operator<<(std::ostream &os, const Planet &planet)
     return os;
 }
 
-// Copy constructor, assignment operator, destructor
-Planet::Planet(const Planet &planet) : CelestialObject(planet.name, 0, 0)
-{
-    this->mass = planet.mass;
-    this->radius = planet.radius;
-    this->distanceFromSun = planet.distanceFromSun;
-    this->orbitSpeed = planet.orbitSpeed;
-    this->color = planet.color;
-    this->texture = planet.texture;
-    this->name = planet.name;
-    this->moons = planet.moons;
-}
-
-Planet &Planet::operator=(const Planet &planet)
-{
-    if (this != &planet)
-    {
-        this->mass = planet.mass;
-        this->radius = planet.radius;
-        this->distanceFromSun = planet.distanceFromSun;
-        this->orbitSpeed = planet.orbitSpeed;
-        this->color = planet.color;
-        this->texture = planet.texture;
-        this->name = planet.name;
-        this->moons = planet.moons;
-    }
-
-    return *this;
-}
 
 Planet::~Planet()
 {
@@ -79,7 +50,8 @@ void Planet::draw(sf::RenderWindow* window)
 
     if (window == nullptr)
     {
-        throw WindowNotFoundException("Window not found");
+        std::cout<<"Window is null"<<std::endl;
+        exit(1);
     }
 
 
@@ -105,4 +77,28 @@ void Planet::drawRings(sf::RenderWindow* window, double rad)
     rings.setOutlineColor(sf::Color::White);
     rings.setPosition(position.first - (rad), position.second - (rad));
     window->draw(rings);
+}
+
+// Swap function
+void Planet::swap(Planet& first, Planet& second) {
+    using std::swap;
+
+    // Swap member variables
+    swap(first.mass, second.mass);
+    swap(first.radius, second.radius);
+    swap(first.distanceFromSun, second.distanceFromSun);
+    swap(first.orbitSpeed, second.orbitSpeed);
+    swap(first.moons, second.moons);
+}
+
+// Copy constructor
+Planet::Planet(const Planet& other) : CelestialObject(other.name, 0, 0) {
+    Planet temp = other; // Create a temporary copy using the default constructor
+    swap(*this, temp); // Swap the content of 'this' and 'temp'
+}
+
+// Assignment operator
+Planet& Planet::operator=(Planet other) {
+    swap(*this, other); // Swap the content of 'this' and 'other'
+    return *this;
 }

@@ -31,8 +31,9 @@ public:
     double getRadius() const;
 
     // Copy constructor, assignment operator, destructor
+    void swap(Planet& first, Planet& second);
     Planet(const Planet& planet);
-    Planet& operator=(const Planet& planet);
+    Planet& operator=(Planet other);
     ~Planet();
 
 };

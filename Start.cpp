@@ -34,41 +34,29 @@ int main()
     {
         auto &x = MainWindowClass::get_app("SpaceEngine", 1000, 500);
 
-        if (x.getWindowHeight() < 0 || x.getWindowWidth() < 0)
-        {
-            std::cout << "Window size cannot be negative. Reverting to default values..." << std::endl;
-            x.setWindowHeight(500); // Set default window height
-            x.setWindowWidth(1000); // Set default window width
-        }
 
         init(&x); // Initialize the universe
         x.WinStartRendering();
     }
 
-    catch (PlanetariumArgumentException &e)
-    {
-        std::cout << "The program encountered an error regarding the arguments of a function: " << e.what() << std::endl;
-        exit(1);
-    }
-    catch (WindowNotFoundException &e)
-    {
-        std::cout << "The program encountered an error regarding the window: " << e.what() << std::endl;
-        exit(1);
-    }
     catch (PlanetariumException &e)
     {
-        std::cout << "The program encountered a planetarium-related error: " << e.what() << std::endl;
-        exit(1);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "The program encountered an error: " << e.what() << std::endl;
-        exit(1);
-    }
-    catch (...)
-    {
-        std::cout << "The program encountered an unknown error" << std::endl;
-        exit(1);
+        if (const PlanetariumArgumentException* argExc = dynamic_cast<const PlanetariumArgumentException*>(&e))
+        {
+            std::cout << "PlanetariumArgumentException: " << argExc->what() << std::endl;
+        }
+        else if (const PlanetariumLogicException* logicExc = dynamic_cast<const PlanetariumLogicException*>(&e))
+        {
+            std::cout << "PlanetariumLogicException: " << logicExc->what() << std::endl;
+        }
+        else if (const PlanetariumRuntimeException* runtimeExc = dynamic_cast<const PlanetariumRuntimeException*>(&e))
+        {
+            std::cout << "PlanetariumRuntimeException: " << runtimeExc->what() << std::endl;
+        }
+        else
+        {
+            std::cout << "PlanetariumException: " << e.what() << std::endl;
+        }
     }
 
     std::cin.get();

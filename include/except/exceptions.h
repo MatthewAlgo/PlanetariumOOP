@@ -27,17 +27,17 @@ public:
     explicit StarNotFoundException(const std::string& starName);
 };
 
-class WindowNotFoundException : public PlanetariumException {
+class PlanetariumRuntimeException : public PlanetariumException {
 public:
-    explicit WindowNotFoundException(const std::string& message);
-};
-
-class PlanetarimRuntimeException : public PlanetariumException {
-public:
-    explicit PlanetarimRuntimeException(const std::string& message);
+    explicit PlanetariumRuntimeException(const std::string& message);
 };
 
 class PlanetariumArgumentException : public PlanetariumException {
 public:
     explicit PlanetariumArgumentException(const std::string& message);
+};
+
+class PlanetariumLogicException : public PlanetariumException {
+public:
+    explicit PlanetariumLogicException(const std::string& message);
 };

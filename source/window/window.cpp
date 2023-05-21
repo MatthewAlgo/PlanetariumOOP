@@ -59,7 +59,10 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 			}
 		}
 		// Draws the window
-		MainWindowClass::DrawInsideMainWindow(ITEM_HOLDER.getA());
+		if (ITEM_HOLDER.getA() != nullptr)
+			MainWindowClass::DrawInsideMainWindow(ITEM_HOLDER.getA());
+		else
+			throw PlanetariumRuntimeException("Window is null");
 	}
 }
 /* Window draw - draws the window with elements */
@@ -73,9 +76,7 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 	{
 
 		if (objectsToBeDrawn[i] == nullptr)
-			throw PlanetarimRuntimeException("Object to be drawn is null");
-		if (Window == nullptr)
-			throw PlanetarimRuntimeException("Window is null");
+			throw PlanetariumRuntimeException("Object to be drawn is null");
 
 		if (Star* star = dynamic_cast<Star*>(objectsToBeDrawn[i])) {
         	// object is a Star
@@ -92,7 +93,7 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 			moon->drawOrbit(Window, moon->getRadius() + 1);
 			moon->draw(Window);
 		} else {
-			throw PlanetarimRuntimeException("Object to be drawn is not a Star, Planet or Moon");
+			throw PlanetariumRuntimeException("Object to be drawn is not a Star, Planet or Moon");
 		}
 	}
 
