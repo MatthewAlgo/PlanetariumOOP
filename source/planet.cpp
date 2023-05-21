@@ -83,6 +83,9 @@ void Planet::drawRings(sf::RenderWindow* window, double rad)
 void Planet::swap(Planet& first, Planet& second) {
     using std::swap;
 
+    CelestialObject::swap(static_cast<CelestialObject&>(first), static_cast<CelestialObject&>(second));
+
+
     // Swap member variables
     swap(first.mass, second.mass);
     swap(first.radius, second.radius);
@@ -92,10 +95,9 @@ void Planet::swap(Planet& first, Planet& second) {
 }
 
 // Copy constructor
-Planet::Planet(const Planet& other) : CelestialObject(other.name, 0, 0) {
-    Planet temp = other; // Create a temporary copy using the default constructor
-    swap(*this, temp); // Swap the content of 'this' and 'temp'
-}
+Planet::Planet(const Planet& other) : CelestialObject(other), mass(other.mass), radius(other.radius),
+                                      distanceFromSun(other.distanceFromSun), orbitSpeed(other.orbitSpeed),
+                                      moons(other.moons) {}
 
 // Assignment operator
 Planet& Planet::operator=(Planet other) {

@@ -77,6 +77,9 @@ void Moon::drawOrbit(sf::RenderWindow* window, double rad){
 void Moon::swap(Moon& first, Moon& second) {
     using std::swap;
 
+    CelestialObject::swap(static_cast<CelestialObject&>(first), static_cast<CelestialObject&>(second));
+
+
     // Swap member variables
     swap(first.mass, second.mass);
     swap(first.radius, second.radius);
@@ -93,7 +96,6 @@ Moon& Moon::operator=(Moon other) {
 }
 
 // Copy constructor
-Moon::Moon(const Moon& other) : CelestialObject(other.name, 0, 0) {
-    Moon temp = other; // Create a temporary copy using the default constructor
-    swap(*this, temp); // Swap the content of 'this' and 'temp'
-}
+Moon::Moon(const Moon& other) : CelestialObject(other.name, 0, 0), mass(other.mass), radius(other.radius),
+                                distanceFromPlanet(other.distanceFromPlanet), orbitSpeed(other.orbitSpeed),
+                                rotationSpeed(other.rotationSpeed), rotationAngle(other.rotationAngle) {}

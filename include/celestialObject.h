@@ -28,6 +28,7 @@ protected:
 
     std::pair<double, double> getPosition() const;
     void setPosition(const std::pair<double, double>& position);
+    void swap(CelestialObject& first, CelestialObject& second);
 };
 
 

@@ -102,6 +102,10 @@ Star::~Star() {
 void Star::swap(Star& first, Star& second) {
     using std::swap;
 
+    // Swap base class member variables
+    CelestialObject::swap(static_cast<CelestialObject&>(first), static_cast<CelestialObject&>(second));
+
+
     // Swap member variables
     swap(first.mass, second.mass);
     swap(first.radius, second.radius);
@@ -112,11 +116,20 @@ void Star::swap(Star& first, Star& second) {
 }
 
 // Copy constructor
-Star::Star(const Star& other) : CelestialObject(other.name, 0, 0) {
-    Star temp = other; // Create a temporary copy using the default constructor
-    swap(*this, temp); // Swap the content of 'this' and 'temp'
-}
+Star::Star(const Star& other) : CelestialObject(other), mass(other.mass), radius(other.radius), orbitSpeed(other.orbitSpeed), distanceFromCenterOfGalaxy(other.distanceFromCenterOfGalaxy), starObj(nullptr)
+{
+    // Deep copy the planets
+    for (const auto& planet : other.planets)
+    {
+        planets.push_back(Planet(planet));
+    }
 
+    // Deep copy the star object
+    if (other.starObj)
+    {
+        starObj = new sf::CircleShape(*other.starObj);
+    }
+}
 // Assignment operator
 Star& Star::operator=(Star other) {
     swap(*this, other); // Swap the content of 'this' and 'other'

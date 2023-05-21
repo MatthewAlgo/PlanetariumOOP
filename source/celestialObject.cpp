@@ -35,3 +35,13 @@ CelestialObject::CelestialObject(const CelestialObject& celestialObject) {
     texture = celestialObject.texture;
     position = celestialObject.position;
 }
+
+// Swap function
+void CelestialObject::swap(CelestialObject& first, CelestialObject& second) {
+    using std::swap;
+
+    swap(first.name, second.name);
+    swap(first.color, second.color);
+    swap(first.texture, second.texture);
+    swap(first.position, second.position);
+}
