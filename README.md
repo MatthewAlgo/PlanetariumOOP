@@ -55,10 +55,10 @@ Planetarium is built using SFML, a popular open-source multimedia library for cr
 
 #### Cerințe
 - [X] 2 șabloane de proiectare (design patterns)
-- [ ] o funcție șablon (template) cu sens; minim 2 instanțieri
-- [ ] o clasă șablon cu sens; minim 2 instanțieri
+- [X] o funcție șablon (template) cu sens; minim 2 instanțieri
+- [X] o clasă șablon cu sens; minim 2 instanțieri
 <!-- - [ ] o specializare pe funcție/clasă șablon -->
-- [ ] tag de `git`: de exemplu `v0.3` sau `v1.0`
+- [X] tag de `git`: de exemplu `v0.3` sau `v1.0`
 
 ## Resurse
 
