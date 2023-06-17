@@ -18,12 +18,6 @@ private:
 public:
     friend std::ostream& operator<<(std::ostream& os, const StarCluster& starCluster);
 
-//    double getDistanceFromCenterOfGalaxy() const;
-//    double getRotationSpeed() const;
-//    double getMass() const;
-//    double getRadius() const;
-//    double getLuminosity() const;
-
     // Constructor, copy constructor and assignment operator
     StarCluster(double distanceFromCenterOfGalaxy, double radius);
     StarCluster(const StarCluster& starCluster);

@@ -28,13 +28,25 @@
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\except\exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\hypergiantstar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moonfactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planetfactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\star.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\starfactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\structs\mt_randomengine.cpp">
@@ -69,13 +81,25 @@
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\except\exceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\hypergiantstar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moonfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planetfactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\star.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\starfactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\holder.h">

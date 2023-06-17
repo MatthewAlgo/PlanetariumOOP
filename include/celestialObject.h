@@ -16,15 +16,6 @@ protected:
 
     std::pair<double, double> position;
 
-    // Getters and setters for all the private variables
-    //    std::string getName() const;
-    //    void setName(std::string name);
-    //    double getColor() const;
-    //    void setColor(double color);
-    //    double getTexture() const;
-    //    void setTexture(double texture);
-    
-
 
     public:
     virtual void draw(sf::RenderWindow* window) = 0;
@@ -37,6 +28,7 @@ protected:
 
     std::pair<double, double> getPosition() const;
     void setPosition(const std::pair<double, double>& position);
+    void swap(CelestialObject& first, CelestialObject& second);
 };
 
 

@@ -22,12 +22,18 @@ StarNotFoundException::StarNotFoundException(const std::string &starName)
         message_ = "Star not found: " + starName;
     }
 
-WindowNotFoundException::WindowNotFoundException(const std::string &message)
-    : PlanetariumException(message) {
-        message_ = message;
-    }
-
-PlanetarimRuntimeException::PlanetarimRuntimeException(const std::string &message)
+PlanetariumRuntimeException::PlanetariumRuntimeException(const std::string &message)
     : PlanetariumException(message) {
         message_ = "Runtime error with message:" + message;
+}
+
+
+PlanetariumArgumentException::PlanetariumArgumentException(const std::string &message)
+    : PlanetariumException(message) {
+        message_ = "Invalid argument exception: " + message;
+}
+
+PlanetariumLogicException::PlanetariumLogicException(const std::string &message)
+    : PlanetariumException(message) {
+        message_ = "Logic exception: " + message;
 }

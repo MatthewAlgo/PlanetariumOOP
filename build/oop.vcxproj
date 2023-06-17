@@ -342,9 +342,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\celestialObject.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\constants.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\except\exceptions.cpp" />
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\hypergiantstar.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moon.cpp" />
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\moonfactory.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planet.cpp" />
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\planetfactory.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\star.cpp" />
+    <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\starfactory.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\structs\mt_randomengine.cpp" />
     <ClCompile Include="C:\Users\Matthew\Projects\PlanetariumOOP\source\window\window.cpp" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\abstract\galaxy.h" />
@@ -355,9 +359,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\celestialObject.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\constants.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\except\exceptions.h" />
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\hypergiantstar.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moon.h" />
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\moonfactory.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planet.h" />
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\planetfactory.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\star.h" />
+    <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\starfactory.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\holder.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\structs\mt_randomengine.h" />
     <ClInclude Include="C:\Users\Matthew\Projects\PlanetariumOOP\include\window\window.h" />

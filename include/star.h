@@ -26,28 +26,24 @@ protected:
 public:
     // Constructor, destructor, copy constructor, assignment operator, getters and setters
     void draw(sf::RenderWindow* window) override;
-
+    void drawHalo(sf::RenderWindow* window, double radius);
+    
     // Constructor
     Star(const std::string& name, double mass, double radius, double orbitSpeed, double distanceFromCenterOfGalaxy, double gal_X, double gal_Y, double gal_R);
     // Star(name, mass, radius, orbitSpeed, distanceFromCenterOfGalaxy, gal_X, gal_Y, gal_R, window)
 
-    // Getters and setters for all the private variables
-//    double getMass() const;
-//    void setMass(double mass);
-//    double getRadius() const;
-//    void setRadius(double radius);
-//    double getDistanceFromCenterOfGalaxy() const;
-//    void setDistanceFromCenterOfGalaxy(double distanceFromSun);
-//    // Getter for the planets vector
+
     std::vector<Planet> &getPlanets();
     void addPlanet(const Planet& planet);
 
     // friend ostream for <<
     friend std::ostream &operator<<(std::ostream &os, const Star &star);
+    double getRadius() const; 
 
     // Copy constructor, assignment operator, destructor
     Star(const Star &star);
-    Star &operator=(const Star &star);
+    Star& operator=(Star other);
+    void swap(Star& first, Star& second);
     ~Star();
 };
 

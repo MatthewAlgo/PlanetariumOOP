@@ -7,17 +7,13 @@
 void Star::draw(sf::RenderWindow* window) {
     // Draw a yellow small circle for the star at the position position
 
-    try
+    
+    if (window == nullptr)
     {
-        if (window == nullptr)
-        {
-            throw WindowNotFoundException("Window not found");
-        }
+        std::cout<<"Window is null"<<std::endl;
+        exit(1);
     }
-    catch (WindowNotFoundException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    
 
     sf::CircleShape star;
     star.setRadius(radius);
@@ -26,30 +22,6 @@ void Star::draw(sf::RenderWindow* window) {
     window->draw(star);
 }
 
-//[[maybe_unused]]
-//double Star::getMass() const {
-//    return mass;
-//}
-//[[maybe_unused]]
-//void Star::setMass(double m) {
-//    mass = m;
-//}
-//[[maybe_unused]]
-//double Star::getRadius() const{
-//    return radius;
-//}
-//[[maybe_unused]]
-//void Star::setRadius(double r) {
-//    radius = r;
-//}
-//[[maybe_unused]]
-//double Star::getDistanceFromCenterOfGalaxy() const{
-//    return distanceFromCenterOfGalaxy;
-//}
-//[[maybe_unused]]
-//void Star::setDistanceFromCenterOfGalaxy(double dist) {
-//    distanceFromCenterOfGalaxy = dist;
-//}
 
 // friend ostream for <<
 std::ostream &operator<<(std::ostream &os, const Star &star) {
@@ -64,39 +36,20 @@ std::ostream &operator<<(std::ostream &os, const Star &star) {
     return os;
 }
 
-// Operator= and copy constructor
-Star::Star(const Star &star) : CelestialObject(star.name, 0, 0), mass(star.mass), radius(star.radius), orbitSpeed(star.orbitSpeed), distanceFromCenterOfGalaxy(star.distanceFromCenterOfGalaxy),  planets(star.planets) {
-    // Init the variables
-}
-
-Star &Star::operator=(const Star &star) {
-    CelestialObject::operator=(star);
-    mass = star.mass;
-    radius = star.radius;
-    orbitSpeed = star.orbitSpeed;
-    distanceFromCenterOfGalaxy = star.distanceFromCenterOfGalaxy;
-    planets = star.planets;
-    position = star.position;
-    return *this;
-}
-
-Star::~Star() {
-}
-
 // Constructor
 Star::Star(const std::string& n, double m, double r, double o, double d, double gal_X, double gal_Y, double gal_R) : CelestialObject(n, 0, 0), mass(m), radius(r),orbitSpeed(o), distanceFromCenterOfGalaxy(d) {
     // Init the variables
     if (radius < 0) {
-        throw std::invalid_argument("Radius cannot be negative");
+        throw PlanetariumArgumentException("Radius cannot be negative");
     }
     if (mass < 0) {
-        throw std::invalid_argument("Mass cannot be negative");
+        throw PlanetariumArgumentException("Mass cannot be negative");
     }
     if (orbitSpeed < 0) {
-        throw std::invalid_argument("Orbit speed cannot be negative");
+        throw PlanetariumArgumentException("Orbit speed cannot be negative");
     }
     if (distanceFromCenterOfGalaxy < 0) {
-        throw std::invalid_argument("Distance from center of galaxy cannot be negative");
+        throw PlanetariumArgumentException("Distance from center of galaxy cannot be negative");
     }
 
     // The star is not part of a galaxy
@@ -118,3 +71,73 @@ std::vector<Planet> &Star::getPlanets() {
 void Star::addPlanet(const Planet& planet) {
     planets.push_back(planet);
 }
+
+void Star::drawHalo(sf::RenderWindow* window, double rad) {
+    if (window == nullptr)
+    {
+        std::cout<<"Window is null"<<std::endl;
+        exit(1); // No need to continue
+    }
+    sf::CircleShape halo;
+    halo.setRadius(rad);
+    halo.setFillColor(sf::Color::Red);
+    halo.setOutlineThickness(1);
+    halo.setOutlineColor(sf::Color::White);
+    halo.setPosition(position.first - rad, position.second - rad);
+    window->draw(halo);
+}
+
+double Star::getRadius() const {
+    return radius;
+}
+
+
+// Destructor
+Star::~Star() {
+    delete starObj;
+    // No additional cleanup needed for planets vector
+}
+
+// Swap function
+void Star::swap(Star& first, Star& second) {
+    using std::swap;
+
+    // Swap base class member variables
+    CelestialObject::swap(static_cast<CelestialObject&>(first), static_cast<CelestialObject&>(second));
+
+
+    // Swap member variables
+    swap(first.mass, second.mass);
+    swap(first.radius, second.radius);
+    swap(first.orbitSpeed, second.orbitSpeed);
+    swap(first.distanceFromCenterOfGalaxy, second.distanceFromCenterOfGalaxy);
+    swap(first.planets, second.planets);
+    swap(first.starObj, second.starObj);
+}
+
+// Copy constructor
+Star::Star(const Star& other) : CelestialObject(other), mass(other.mass), radius(other.radius), orbitSpeed(other.orbitSpeed), distanceFromCenterOfGalaxy(other.distanceFromCenterOfGalaxy), starObj(nullptr)
+{
+    // Deep copy the planets
+    for (const auto& planet : other.planets)
+    {
+        planets.push_back(Planet(planet));
+    }
+
+    // Deep copy the star object
+    if (other.starObj)
+    {
+        starObj = new sf::CircleShape(*other.starObj);
+    }
+}
+// Assignment operator
+Star& Star::operator=(Star other) {
+    swap(*this, other); // Swap the content of 'this' and 'other'
+    return *this;
+}
+
+
+
+
+
+

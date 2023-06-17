@@ -59,7 +59,10 @@ void MainWindowClass::MainWindowThreadExecution(TripleItemHolder<sf::RenderWindo
 			}
 		}
 		// Draws the window
-		MainWindowClass::DrawInsideMainWindow(ITEM_HOLDER.getA());
+		if (ITEM_HOLDER.getA() != nullptr)
+			MainWindowClass::DrawInsideMainWindow(ITEM_HOLDER.getA());
+		else
+			throw PlanetariumRuntimeException("Window is null");
 	}
 }
 /* Window draw - draws the window with elements */
@@ -73,23 +76,24 @@ void MainWindowClass::DrawInsideMainWindow(sf::RenderWindow *Window)
 	{
 
 		if (objectsToBeDrawn[i] == nullptr)
-			throw PlanetarimRuntimeException("Object to be drawn is null");
-		if (Window == nullptr)
-			throw PlanetarimRuntimeException("Window is null");
+			throw PlanetariumRuntimeException("Object to be drawn is null");
 
 		if (Star* star = dynamic_cast<Star*>(objectsToBeDrawn[i])) {
         	// object is a Star
+			star->drawHalo(Window, star->getRadius() + 1);
         	star->draw(Window);
     	}
     	else if (Planet* planet = dynamic_cast<Planet*>(objectsToBeDrawn[i])) {
         	// object is a Planet;
-        	planet->draw(Window);
+			planet->drawRings(Window, planet->getRadius() + 1);
+			planet->draw(Window);
     	}
     	else if (Moon* moon = dynamic_cast<Moon*>(objectsToBeDrawn[i])) {
 			// object is a Moon
+			moon->drawOrbit(Window, moon->getRadius() + 1);
 			moon->draw(Window);
 		} else {
-			throw PlanetarimRuntimeException("Object to be drawn is not a Star, Planet or Moon");
+			throw PlanetariumRuntimeException("Object to be drawn is not a Star, Planet or Moon");
 		}
 	}
 
@@ -102,40 +106,6 @@ void MainWindowClass::WinStartRendering()
 
 	MainWindowThreadExecution(*TripleHolder);
 }
-
-/*(Render textures - unused function)*/
-
-/*
-void MainWindowClass::RenderTextures(DoubleItemHolder<sf::RenderWindow, MainWindowClass> ITEM_HOLDER) {
-	// Inside a separate thread -> Background
-	BackGround = std::make_unique<ImageToBeDrawn>();
-	BackGround->TEXTURE.loadFromFile("res/greenwallpaper.jpeg");
-	BackGround->SPRITE.setTexture(BackGround->TEXTURE);
-	BackGround->SPRITE.setScale(0.5, 0.5);
-
-	// Inside a separate thread -> Menu Button
-	// First Button
-	MenuBox1.TEXTURE.loadFromFile("res/greenpill.png");
-	MenuBox1.SPRITE.setTexture(MenuBox1.TEXTURE);
-	MenuBox1.SPRITE.setPosition(WWidth / 3, WHeight / 15);
-	MenuBox1.SPRITE.setScale(0.5, 0.5);
-
-	// Second Button
-	MenuBox2.TEXTURE.loadFromFile("res/greenpill.png");
-	MenuBox2.SPRITE.setTexture(MenuBox2.TEXTURE);
-	MenuBox2.SPRITE.setPosition(WWidth / 3, WHeight / 3);
-	MenuBox2.SPRITE.setScale(0.5, 0.5);
-
-	// Render Font for text
-	GlobalWindowFont.loadFromFile("res/google_fonts/ProductSans-Bold.ttf");
-	GreetingText.setFont(GlobalWindowFont);
-	GreetingText.setString("My Application");
-	GreetingText.setCharacterSize(24);
-	GreetingText.setFillColor(sf::Color::Yellow);
-	GreetingText.setStyle(sf::Text::Bold);
-	GreetingText.setPosition(WWidth / 2.35, WHeight / 100);
-
-} */
 
 void MainWindowClass::setWindow(sf::RenderWindow *Window)
 {

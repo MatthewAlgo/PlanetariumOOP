@@ -20,15 +20,6 @@ public:
     BlackHole& operator=(const BlackHole& blackHole);
     
 
-    // Getters and setters for all the private variables
-//    double getActivityLevel() const;
-//    void setActivityLevel(double activityLevel);
-//    double getSchwarzschildRadius() const;
-//    void setSchwarzschildRadius(double schwarzschildRadius);
-//    double getRadius() const;
-//    void setRadius(double radius);
-//    double getMass() const;
-//    void setMass(double mass);
 
     friend std::ostream& operator<<(std::ostream& os, const BlackHole& blackHole);
 };

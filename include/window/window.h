@@ -7,6 +7,7 @@
 #include <iostream>
 #include <functional>
 #include <memory>
+#include "except/exceptions.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -45,6 +46,10 @@ private:
     MainWindowClass(const std::string &TITLE, int W, int H) : WindowTitle(TITLE), MainWindowVideo(new sf::VideoMode(W, H)),
                                                               WWidth(static_cast<int>(W)), WHeight(static_cast<int>(H))
     {
+        if (W < 0 || H < 0)
+        {
+            throw PlanetariumLogicException("Width and height must be positive integers");
+        }
         // Create window and set active
         WindowPointer = std::make_unique<sf::RenderWindow>(*MainWindowVideo, WindowTitle, sf::Style::Titlebar | sf::Style::Close); // Create the window
         WindowPointer->setActive(false);
@@ -65,6 +70,10 @@ public:
     MainWindowClass& operator=(const MainWindowClass&) = delete;
 
     static MainWindowClass& get_app(const std::string &TITLE, int W, int H) {
+        if (W < 0 || H < 0)
+        {
+            throw PlanetariumLogicException("Width and height must be positive integers");
+        }
         static MainWindowClass app(TITLE, W, H);
         return app;
     }

@@ -7,22 +7,6 @@ void BlackHole::draw(sf::RenderWindow* window) {
     std::cout<< window->getSize().x <<std::endl;
 }
 
-//[[maybe_unused]]
-//double BlackHole::getMass() const {
-//    return mass;
-//}
-//[[maybe_unused]]
-//void BlackHole::setMass(double m) {
-//    mass = m;
-//}
-//[[maybe_unused]]
-//double BlackHole::getRadius() const{
-//    return radius;
-//}
-//[[maybe_unused]]
-//void BlackHole::setRadius(double r) {
-//    radius = r;
-//}
 
 
 // friend ostream for <<
