@@ -5,8 +5,6 @@
 #include "starfactory.h"
 #include "moonfactory.h"
 
-int Universe::numberOfUniverseObjects = 0;
-
 Universe::Universe(int nOg) {
     numberOfGalaxies = nOg;
 }
@@ -83,9 +81,21 @@ void Universe::createBigBang(MainWindowClass* window) {
             galaxy.setLuminosity(i * Constants::LUMINOSITY_CONSTANT);
         }
 
+        if (i == 0) {
+            // Add our solar system to the first universe
+            SolarSystemBuilder builder;
+            galaxy.addSolarSystem(
+            builder.addPlanet(PlanetFactory::createNormalPlanet("Earth", std::make_pair<double, double>(30, 30), 45))
+                    .addPlanet(PlanetFactory::createLargePlanet("Jupiter", std::make_pair<double, double>(50, 50), 45))
+                    .addPlanet(PlanetFactory::createSmallPlanet("Mercury", std::make_pair<double, double>(10, 10), 45))
+                    .setMainStar(StarFactory::createNormalStar("Sun", std::make_pair<double, double>(0, 0), 45)).noAsteroidBelts(2).ageOfSSystem(5).build()
+            );
+            std::cout << "Added solar system: " << galaxy.getSolarSystems().back() << "\n";
+        }
         // Add the galaxy object to the universe
         addGalaxy(galaxy);
     }
+
 
     startTime();
 }
@@ -102,3 +112,5 @@ int Universe::checkTime(){
     std::cout << "Time since big bang = " << std::chrono::duration_cast<std::chrono::seconds> (end - begin).count() << "[s]" << std::endl;
     return (int)std::chrono::duration_cast<std::chrono::seconds> (end - begin).count();
 }
+
+int Universe::numberOfUniverseObjects = 0;

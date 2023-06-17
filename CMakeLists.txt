@@ -107,7 +107,7 @@ file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${PROJECT_NAME} Start.cpp ${sources} ${headers})
+add_executable(${PROJECT_NAME} Start.cpp ${sources} ${headers} source/solarsystem.cpp include/solarsystem.h)
 
 ###############################################################################
 

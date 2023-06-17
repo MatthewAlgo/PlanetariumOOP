@@ -91,3 +91,15 @@ void Galaxy::setPosition(const std::pair<double, double>& pos) {
 double Galaxy::getRadius() const {
     return radius;
 }
+
+const std::vector<SolarSystem> &Galaxy::getSolarSystems() const {
+    return solarSystems;
+}
+
+void Galaxy::addSolarSystem(SolarSystem ss) {
+    solarSystems.push_back(ss);
+}
+
+void Galaxy::setSolarSystems(const std::vector<SolarSystem> &sSystems) {
+    Galaxy::solarSystems = sSystems;
+}

@@ -104,3 +104,7 @@ Planet& Planet::operator=(Planet other) {
     swap(*this, other); // Swap the content of 'this' and 'other'
     return *this;
 }
+
+void Planet::setMoons(const std::vector<Moon> &m) {
+    this->moons = m;
+}

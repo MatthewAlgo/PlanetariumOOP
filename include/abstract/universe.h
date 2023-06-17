@@ -9,14 +9,12 @@
 
 class Universe
 {
-public:
-    static int numberOfUniverseObjects;
-
 private:
     std::vector<Galaxy> galaxies;
     int numberOfGalaxies;
     std::chrono::time_point<std::chrono::steady_clock> begin;
-
+    static int numberOfUniverseObjects;
+    friend class UniverseFactory;
 public:
     explicit Universe(int numberOfGalaxies);
 
