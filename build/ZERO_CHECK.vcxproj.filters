@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Matthew\Projects\PlanetariumOOP\build\CMakeFiles\7234e2f51d4c1f53b3c3cd63960ed21f\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\Matthew\Desktop\PlanetariumOOP\build\CMakeFiles\94659c3f933bef41dfe8dc94f879684c\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{02722C40-A6C4-3FF6-ADE2-9D81B5E3CB4F}</UniqueIdentifier>
+      <UniqueIdentifier>{65510771-CF12-33EE-9188-701267942D5F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

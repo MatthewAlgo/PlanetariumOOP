@@ -6,6 +6,7 @@
 #include "abstract/starCluster.h"
 #include "constants.h"
 #include "blackHole.h"
+#include "solarsystem.h"
 
 class Galaxy
 {
@@ -17,7 +18,12 @@ protected:
     double luminosity;
 
     std::pair<double, double> position;
+    std::vector<SolarSystem> solarSystems;
+public:
+    [[nodiscard]] const std::vector<SolarSystem> &getSolarSystems() const;
+    void setSolarSystems(const std::vector<SolarSystem> &solarSystems);
 
+protected:
     std::vector<StarCluster> starClusters;
     std::vector<Star> lonelyStars;
     BlackHole blackHole;
@@ -46,6 +52,8 @@ public:
 
     std::vector<Star>& getLonelyStars();
     void setLonelyStars(const std::vector<Star>& stars);
+
+    void addSolarSystem(SolarSystem ss);
 };
 
 

@@ -25,3 +25,12 @@ StarCluster& StarCluster::operator=(const StarCluster& starCluster) {
     this->luminosity = starCluster.luminosity;
     return *this;
 }
+
+std::ostream &operator<<(std::ostream &os, const StarCluster &cluster) {
+    os << "distanceFromCenterOfGalaxy: " << cluster.distanceFromCenterOfGalaxy << " rotationSpeed: "
+       << cluster.rotationSpeed << " mass: " << cluster.mass << " radius: " << cluster.radius << " luminosity: "
+       << cluster.luminosity << " stars: " << cluster.stars;
+    return os;
+}
+
+
